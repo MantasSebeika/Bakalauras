@@ -1,0 +1,48 @@
+<div>
+  <p>
+    IT Klausimynas
+  </p>  
+</div>
+<div>
+<p>Klausimynas yra pildomas pasirenkant viena iš 6 galimų reikšmių:
+    0 - Netaikoma
+    1 - Ne
+    2 – Ne, bet planuojama
+    3 - Dalinai
+    4 - Įgyvendinama
+    5 – Taip
+    Taip pat kiekviename klausime rekomenduojama pakomentuoti ir detalizuoti savo pasirinkimą. Komentaruose svarbu aprašyti kaip sprendimas yra įgyvendintas arba kodėl neįgyvendintas. Kuo detaliau bus pakomentuos klausimynas, tuo detalesnės bus klausimyno išvados ir rekomendacijos.
+    </p>
+</div>
+<div class="marginas" *ngFor="let kategorija of kategorijos; index as i;">
+    <h2> {{kategorija.kategorija}} </h2>
+    <mat-card>
+        <div class="marginas">
+            
+            <mat-card *ngFor="let klausimas of kategorija.klausimai; index as in;">
+                <div style="display: flex; justify-content: space-between;">
+                
+                    <span>{{klausimas.klausimas}}</span> 
+
+                <mat-chip-list>
+                    <mat-chip>0</mat-chip>
+                    <mat-chip>1</mat-chip>
+                    <mat-chip>2</mat-chip>
+                    <mat-chip>3</mat-chip>
+                    <mat-chip>4</mat-chip>
+                    <mat-chip>5</mat-chip>
+                  </mat-chip-list>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Komentaras</mat-label>
+                    <textarea matInput></textarea>
+                </mat-form-field>
+
+            </div>
+            </mat-card>
+            <mat-divider></mat-divider>
+        </div>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <!-- <button mat-raised-button class="marginas">Pateikti</button> -->
+</div>
