@@ -1,44 +1,74 @@
-<div>
-  <p>
-    IT Klausimynas
-  </p>  
+<div style="height: 100px;"></div>
+<div style="display: flex; justify-content: center; align-items: center; font-size: xx-large;">
+    <p>
+        IT Klausimynas
+    </p>
 </div>
-<div>
-<p>Klausimynas yra pildomas pasirenkant viena iš 6 galimų reikšmių:
-    0 - Netaikoma
-    1 - Ne
-    2 – Ne, bet planuojama
-    3 - Dalinai
-    4 - Įgyvendinama
-    5 – Taip
-    Taip pat kiekviename klausime rekomenduojama pakomentuoti ir detalizuoti savo pasirinkimą. Komentaruose svarbu aprašyti kaip sprendimas yra įgyvendintas arba kodėl neįgyvendintas. Kuo detaliau bus pakomentuos klausimynas, tuo detalesnės bus klausimyno išvados ir rekomendacijos.
+<div style="font-size: medium">
+    <p>Klausimynas yra pildomas pasirenkant viena iš 6 galimų reikšmių:
+        0 - Netaikoma
+        1 - Ne
+        2 – Ne, bet planuojama
+        3 - Dalinai
+        4 - Įgyvendinama
+        5 – Taip
+        Taip pat kiekviename klausime rekomenduojama pakomentuoti ir detalizuoti savo pasirinkimą. Komentaruose svarbu
+        aprašyti kaip sprendimas yra įgyvendintas arba kodėl neįgyvendintas. Kuo detaliau bus pakomentuos klausimynas,
+        tuo detalesnės bus klausimyno išvados ir rekomendacijos.
     </p>
 </div>
 <div class="marginas" *ngFor="let kategorija of kategorijos; index as i;">
     <h2> {{kategorija.kategorija}} </h2>
     <mat-card>
         <div class="marginas">
-            
+
             <mat-card *ngFor="let klausimas of kategorija.klausimai; index as in;">
-                <div style="display: flex; justify-content: space-between;">
-                
-                    <span>{{klausimas.klausimas}}</span> 
 
-                <mat-chip-list>
-                    <mat-chip>0</mat-chip>
-                    <mat-chip>1</mat-chip>
-                    <mat-chip>2</mat-chip>
-                    <mat-chip>3</mat-chip>
-                    <mat-chip>4</mat-chip>
-                    <mat-chip>5</mat-chip>
-                  </mat-chip-list>
+                <div style="height: 100%; width: 100%; display: flex; justify-content: space-between; align-items: center;">
 
-                <mat-form-field class="example-full-width">
-                    <mat-label>Komentaras</mat-label>
-                    <textarea matInput></textarea>
-                </mat-form-field>
+                    <div style="width: 50%; height: 100%;">
+                            <span>{{klausimas.klausimas}}</span>
+                    </div>
 
-            </div>
+                    <div style="width: 20%;">
+                        <mat-chip-list>
+                            <mat-chip>0</mat-chip>
+                            <mat-chip>1</mat-chip>
+                            <mat-chip>2</mat-chip>
+                            <mat-chip>3</mat-chip>
+                            <mat-chip>4</mat-chip>
+                            <mat-chip>5</mat-chip>
+                        </mat-chip-list>
+                    </div>
+
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label style="width: 30%; height: 40px;">Komentaras</mat-label>
+                            <textarea matInput></textarea>
+                        </mat-form-field>
+                    </div>
+
+                    <!-- <div style="display: flex; justify-content: space-around; align-content: center">
+                    <div style="display: flex; align-content: center">
+                        <span style="width: 35%">{{klausimas.klausimas}}</span>
+                    </div>
+                    <mat-chip-list style="width: 35%">
+                        <mat-chip>0</mat-chip>
+                        <mat-chip>1</mat-chip>
+                        <mat-chip>2</mat-chip>
+                        <mat-chip>3</mat-chip>
+                        <mat-chip>4</mat-chip>
+                        <mat-chip>5</mat-chip>
+                    </mat-chip-list>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label style="width: 30%; height: 40px;">Komentaras</mat-label>
+                        <textarea matInput></textarea>
+                    </mat-form-field>
+
+                </div> -->
+                </div>
+
             </mat-card>
             <mat-divider></mat-divider>
         </div>
