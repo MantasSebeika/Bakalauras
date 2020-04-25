@@ -19,6 +19,8 @@ import { FooterComponent } from './footer/footer.component';
 import { PrisijungimasComponent } from './prisijungimas/prisijungimas.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -43,9 +45,10 @@ import {MatIconModule} from '@angular/material/icon';
     MatInputModule,
     MatChipsModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

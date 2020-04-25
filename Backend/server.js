@@ -28,26 +28,46 @@ app.get('/klausimai', function (req, res) {
 })
 
 app.get('/dataimport', function (req, res) {
-  const converter = csv({ delimiter: ";" }).fromFile('./Data.csv').then((json) => { json.forEach(item => { 
-     Klausimynas.run(`INSERT INTO klausimai VALUES("${guid.v4()}", "${item['klausimas']}", "${item['kategorija']}", "random")`); 
-  }); })
+  const converter = csv({ delimiter: ";" }).fromFile('./Data.csv').then((json) => {
+    json.forEach(item => {
+      Klausimynas.run(`INSERT INTO klausimai VALUES("${guid.v4()}", "${item['klausimas']}", "${item['kategorija']}", "random")`);
+    });
+  })
   res.send("Klausimai import")
 })
 
 app.get('/vartotojaiimport', function (req, res) {
-  const converter = csv({ delimiter: ";" }).fromFile('./vartotojai.csv').then((json) => { json.forEach(item => { 
-     Klausimynas.run(`INSERT INTO vartotojai VALUES("${guid.v4()}", "${item['imonespavadinimas']}", "${item['pastas']}", "${item['slaptazodis']}")`); 
-  }); })
+  const converter = csv({ delimiter: ";" }).fromFile('./vartotojai.csv').then((json) => {
+    json.forEach(item => {
+      Klausimynas.run(`INSERT INTO vartotojai VALUES("${guid.v4()}", "${item['imonespavadinimas']}", "${item['pastas']}", "${item['slaptazodis']}")`);
+    });
+  })
   res.send("Vartotojai import")
 })
 
 app.get('/administratoriaiimport', function (req, res) {
-  const converter = csv({ delimiter: ";" }).fromFile('./administratoriai.csv').then((json) => { json.forEach(item => { 
-     Klausimynas.run(`INSERT INTO vartotojai VALUES("${guid.v4()}", "${item['pastas']}", "${item['slaptazodis']}")`); 
-  }); })
+  const converter = csv({ delimiter: ";" }).fromFile('./administratoriai.csv').then((json) => {
+    json.forEach(item => {
+      Klausimynas.run(`INSERT INTO vartotojai VALUES("${guid.v4()}", "${item['pastas']}", "${item['slaptazodis']}")`);
+    });
+  })
   res.send("Administratoriai import")
 })
 
+app.post('/prisijungti', function (req, res) {
+  // res.send(Klausimynas.get (`select * from vartotojai where pastas="${req.body ['pastas']}"`))
+  Klausimynas.all(`SELECT * from vartotojai where pastas="${req.body['pastas']}" and slaptazodis="${req.body['slaptazodis']}"`, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    if (rows.length == 0){
+    res.send(false);
+  } else
+    res.send(true);
+});
+
+}
+)
 
 
 
