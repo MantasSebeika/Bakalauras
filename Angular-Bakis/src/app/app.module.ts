@@ -16,6 +16,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
 import { FooterComponent } from './footer/footer.component';
+import { PrisijungimasComponent } from './prisijungimas/prisijungimas.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { FooterComponent } from './footer/footer.component';
     PradziaComponent,
     KlausimynasComponent,
     KontaktaiComponent,
-    FooterComponent
+    FooterComponent,
+    PrisijungimasComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { FooterComponent } from './footer/footer.component';
     MatCardModule,
     MatDividerModule,
     MatInputModule,
-    MatChipsModule
+    MatChipsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
