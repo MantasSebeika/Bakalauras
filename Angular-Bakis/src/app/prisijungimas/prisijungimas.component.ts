@@ -6,10 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./prisijungimas.component.scss']
 })
 export class PrisijungimasComponent implements OnInit {
-public email: string;
+  hide = true;
+  public email: Email;
+public slaptazodis: Slaptazodis;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+}
+export class Email {
+  public email: string;
+  invalid(){
+    return true
+  }
+}
+export class Slaptazodis {
+  public slaptazodis: string;
+  invalid(){
+    return true
+    
+  }
 }

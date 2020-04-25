@@ -18,6 +18,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { FooterComponent } from './footer/footer.component';
 import { PrisijungimasComponent } from './prisijungimas/prisijungimas.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatDividerModule,
     MatInputModule,
     MatChipsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

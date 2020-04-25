@@ -8,9 +8,9 @@ import { PrisijungimasComponent } from './prisijungimas/prisijungimas.component'
 
 
 const routes: Routes = [ 
-{ path: 'Klausimynas', component: KlausimynasComponent, canActivate: [AuthGuard]},
-{ path: 'Kontaktai', component: KontaktaiComponent },
-{ path: 'Prisijungimas', component: PrisijungimasComponent},
+{ path: 'klausimynas', component: KlausimynasComponent, canActivate: [AuthGuard]},
+{ path: 'kontaktai', component: KontaktaiComponent },
+{ path: 'prisijungimas', component: PrisijungimasComponent},
 { path:"**", component: PradziaComponent}];
 
 @NgModule({
