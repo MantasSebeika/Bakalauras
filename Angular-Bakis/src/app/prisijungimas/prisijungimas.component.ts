@@ -24,7 +24,7 @@ export class PrisijungimasComponent implements OnInit {
     this.client.post<boolean>("http://localhost:8081/prisijungti", `{"pastas": "${this.email.email}", "slaptazodis":"${this.slaptazodis.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
         this.cookies.set("loginas", "true")
-        this.route.navigateByUrl("http://localhost:4200/klausimynas")
+        this.route.navigateByUrl("/klausimynas")
       }
       else
         alert("nepapilstom")
