@@ -1,5 +1,5 @@
 <div style="width:100%; height: 100%; background-color: rgb(38, 38, 38); display: flex; justify-content: center; align-items: center;">
-    <div class="example-container">
+    <div class="example-container" style="background-color: white; padding: 20px">
         <mat-form-field appearance="fill">
           <mat-label>Enter your email</mat-label>
           <input matInput placeholder="pat@example.com">
@@ -12,6 +12,8 @@
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
+            
           </mat-form-field>
+          <button mat-button color="primary">Login</button>
       </div>
     </div>

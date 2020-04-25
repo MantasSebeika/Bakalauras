@@ -12,6 +12,9 @@ public slaptazodis: Slaptazodis;
   constructor() { }
 
   ngOnInit(): void {
+    this.email= new Email;
+    this.slaptazodis = new Slaptazodis;
+
   }
 
 }
