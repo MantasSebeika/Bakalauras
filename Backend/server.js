@@ -12,11 +12,11 @@ var cors = require('cors');
 app.use(cors());
 app.options('*', cors());
 
-var Klausimynas = new sqlClient.Database('duomenubaze');
+var Klausimynas = new sqlClient.Database('duomenubaze2');
 Klausimynas.run("CREATE TABLE IF NOT EXISTS administratoriai (id TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS vartotojai (id TEXT, imonespavadinimas TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS klausimai (id TEXT, klausimas TEXT, kategorija TEXT, tipas TEXT)");
-Klausimynas.run("CREATE TABLE IF NOT EXISTS atsakymai (id TEXT, klausimoid TEXT, vartotojoid TEXT, atsakymas TEXT, komentarai TEXT)");
+Klausimynas.run("CREATE TABLE IF NOT EXISTS atsakymai (klausimoid TEXT, vartotojoid TEXT, atsakymas TEXT, komentarai TEXT, Constraint Id_Atsakymai UNIQUE (klausimoid, vartotojoid))");
 
 app.get('/klausimai', function (req, res) {
   Klausimynas.all("SELECT * from klausimai", [], (err, rows) => {
@@ -48,23 +48,62 @@ app.get('/vartotojaiimport', function (req, res) {
 app.get('/administratoriaiimport', function (req, res) {
   const converter = csv({ delimiter: ";" }).fromFile('./administratoriai.csv').then((json) => {
     json.forEach(item => {
-      Klausimynas.run(`INSERT INTO vartotojai VALUES("${guid.v4()}", "${item['pastas']}", "${item['slaptazodis']}")`);
+      Klausimynas.run(`INSERT INTO administratoriai VALUES("${guid.v4()}", "${item['pastas']}", "${item['slaptazodis']}")`);
     });
   })
   res.send("Administratoriai import")
 })
 
 app.post('/prisijungti', function (req, res) {
-  // res.send(Klausimynas.get (`select * from vartotojai where pastas="${req.body ['pastas']}"`))
   Klausimynas.all(`SELECT * from vartotojai where pastas="${req.body['pastas']}" and slaptazodis="${req.body['slaptazodis']}"`, [], (err, rows) => {
     if (err) {
       throw err;
     }
-    if (rows.length == 0){
-    res.send(false);
-  } else
-    res.send(true);
-});
+    if (rows.length == 0) {
+      res.send(false);
+    } else
+      res.send(true);
+  }
+  )
+
+}
+)
+app.post('/atsakymai', function (req, res) {
+  Klausimynas.run(`INSERT INTO atsakymai (klausimoid, vartotojoid, atsakymas, komentarai) 
+                  VALUES ("${req.body['klausimoid']}", "${req.body['vartotojoid']}", "${req.body['atsakymas']}", "${req.body['komentarai']}")`, [], (err) => {
+    if (err) {
+
+
+
+
+      Klausimynas.run(`UPDATE atsakymai 
+                        SET atsakymas="${req.body['atsakymas']}, komentarai="${req.body['komentarai']}"
+                        WHERE klausimoid="${req.body['klausimoid']}" and vartotojoid="${req.body['vartotojoid']}"`, [], (err) => {
+        if (err) {
+          throw err;
+        } else
+          res.send(true);
+
+      }
+      )
+
+
+
+    } else
+      res.send(true);
+
+  }
+  )
+}
+)
+
+
+app.post('/dev', function (req, res) {
+  Klausimynas.run(req.body["query"], [], (err) => {
+if (err) {
+throw err;
+} else
+res.send(true);
 
 }
 )
@@ -73,6 +112,27 @@ app.post('/prisijungti', function (req, res) {
 
 
 
+
+})
+
+
+
+app.post('/dev2', function (req, res) {
+  Klausimynas.all(req.body["query"], [], (err, rows) => {
+if (err) {
+throw err;
+} else
+res.send(rows);
+
+}
+)
+
+
+
+
+
+
+})
 
 
 
