@@ -11,6 +11,10 @@ export class HeaderComponent implements OnInit {
 public klausimai:Klausimas[];
 
   constructor(private router:Router, private http:HttpClient, private cookies: CookieService) { }
+  
+  virsus() { 
+    window.scrollTo(0, 0); 
+    }
 
   ngOnInit(): void {
     this.backas();

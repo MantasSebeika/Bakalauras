@@ -72,12 +72,8 @@ app.post('/atsakymai', function (req, res) {
   Klausimynas.run(`INSERT INTO atsakymai (klausimoid, vartotojoid, atsakymas, komentarai) 
                   VALUES ("${req.body['klausimoid']}", "${req.body['vartotojoid']}", "${req.body['atsakymas']}", "${req.body['komentarai']}")`, [], (err) => {
     if (err) {
-
-
-
-
       Klausimynas.run(`UPDATE atsakymai 
-                        SET atsakymas="${req.body['atsakymas']}, komentarai="${req.body['komentarai']}"
+                        SET atsakymas="${req.body['atsakymas']}", komentarai="${req.body['komentarai']}"
                         WHERE klausimoid="${req.body['klausimoid']}" and vartotojoid="${req.body['vartotojoid']}"`, [], (err) => {
         if (err) {
           throw err;
@@ -94,19 +90,20 @@ app.post('/atsakymai', function (req, res) {
 
   }
   )
+  res.send(true);
 }
 )
 
 
 app.post('/dev', function (req, res) {
   Klausimynas.run(req.body["query"], [], (err) => {
-if (err) {
-throw err;
-} else
-res.send(true);
+    if (err) {
+      throw err;
+    } else
+      res.send(true);
 
-}
-)
+  }
+  )
 
 
 
@@ -119,13 +116,13 @@ res.send(true);
 
 app.post('/dev2', function (req, res) {
   Klausimynas.all(req.body["query"], [], (err, rows) => {
-if (err) {
-throw err;
-} else
-res.send(rows);
+    if (err) {
+      throw err;
+    } else
+      res.send(rows);
 
-}
-)
+  }
+  )
 
 
 

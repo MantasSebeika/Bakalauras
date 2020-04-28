@@ -3,6 +3,7 @@
     <p>
         IT Klausimynas
     </p>
+    <button (click)="saugoti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Pateikti</button>
 </div>
 <div style="font-size: medium">
     <p>Klausimynas yra pildomas pasirenkant viena iš 6 galimų reikšmių:
@@ -32,12 +33,12 @@
 
                     <div style="width: 20%;">
                         <mat-chip-list>
-                            <mat-chip>0</mat-chip>
-                            <mat-chip>1</mat-chip>
-                            <mat-chip>2</mat-chip>
-                            <mat-chip>3</mat-chip>
-                            <mat-chip>4</mat-chip>
-                            <mat-chip>5</mat-chip>
+                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '0')">0</mat-chip>
+                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '1')">1</mat-chip>
+                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '2')">2</mat-chip>
+                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '3')">3</mat-chip>
+                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '4')">4</mat-chip>
+                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '5')">5</mat-chip>
                         </mat-chip-list>
                     </div>
 

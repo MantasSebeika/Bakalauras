@@ -3,9 +3,9 @@
   <button style="border-style: solid; border-radius: 15px; width: 150px" [routerLink]="['/']" mat-raised-button class="marginas">Pradžia</button>
   <button style="border-style: solid; border-radius: 15px; width: 150px" [routerLink]="['/klausimynas']" mat-raised-button class="marginas">Klausimynas</button>
   <button style="border-style: solid; border-radius: 15px; width: 150px" [routerLink]="['/kontaktai']" mat-raised-button class="marginas">Kontaktai</button>
-  <button *ngIf ="nerodyti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Pateikti</button>
 </div>  
   <div>
+    <button (click)="virsus()" *ngIf ="nerodyti()" style="border-style: solid; border-radius: 15px; width: 150px"mat-raised-button class="marginas">Į viršų</button>
     <span style="color: white;"> {{pastas()}} </span>
   <button (click)="atsijungti()" *ngIf ="nerodyti()" style="border-style: solid; border-radius: 15px; width: 150px" [routerLink]="['/']" mat-raised-button class="marginas">Atsijungti</button>
 </div>
