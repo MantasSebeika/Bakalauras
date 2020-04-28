@@ -17,7 +17,7 @@ Klausimynas.run("CREATE TABLE IF NOT EXISTS administratoriai (id TEXT, pastas TE
 Klausimynas.run("CREATE TABLE IF NOT EXISTS vartotojai (id TEXT, imonespavadinimas TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS klausimai (id TEXT, klausimas TEXT, kategorija TEXT, tipas TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS atsakymai (klausimoid TEXT, vartotojoid TEXT, atsakymas TEXT, komentarai TEXT, Constraint Id_Atsakymai UNIQUE (klausimoid, vartotojoid))");
-
+// ne tik klausimus bet ir atsakymu. ne get o post kai vartotojo id paduosiu tada atsakymu lentoje 
 app.get('/klausimai', function (req, res) {
   Klausimynas.all("SELECT * from klausimai", [], (err, rows) => {
     if (err) {
@@ -71,18 +71,20 @@ app.post('/prisijungti', function (req, res) {
 app.post('/atsakymai', function (req, res) {
   Klausimynas.run(`INSERT INTO atsakymai (klausimoid, vartotojoid, atsakymas, komentarai) 
                   VALUES ("${req.body['klausimoid']}", "${req.body['vartotojoid']}", "${req.body['atsakymas']}", "${req.body['komentarai']}")`, [], (err) => {
-    if (err) {
+   console.log("papilstom1");
+                    if (err) {
       Klausimynas.run(`UPDATE atsakymai 
                         SET atsakymas="${req.body['atsakymas']}", komentarai="${req.body['komentarai']}"
                         WHERE klausimoid="${req.body['klausimoid']}" and vartotojoid="${req.body['vartotojoid']}"`, [], (err) => {
-        if (err) {
+                          console.log("papilstom2");
+                          if (err) {
           throw err;
         } else
           res.send(true);
 
       }
       )
-
+      console.log("papilstom3");
 
 
     } else

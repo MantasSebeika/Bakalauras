@@ -33,17 +33,6 @@ export class KlausimynasComponent implements OnInit {
     })
   }
 
-  // komentaras(kategorija: string, id: string, komentaras: string) {
-  //   var katIndex = this.kategorijos.findIndex(kategorijaats => kategorijaats.kategorija == kategorija);
-  //   var kat = this.kategorijos.find(kategorijaats => kategorijaats.kategorija == kategorija);
-
-  //   var klausIndex = kat.klausimai.findIndex(Klausimas => Klausimas.klausimoid == id);
-
-  //   kat.klausimai[klausIndex].atsakymas = komentaras;
-
-  //   this.kategorijos[katIndex] = kat;
-  // }
-
   mygtukas(kategorija: string, id: string, reiksme: string) {
 
     var katIndex = this.kategorijos.findIndex(kategorijaats => kategorijaats.kategorija == kategorija);

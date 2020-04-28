@@ -39,13 +39,15 @@
                             <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '3')">3</mat-chip>
                             <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '4')">4</mat-chip>
                             <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '5')">5</mat-chip>
+                      
+                      <!-- {hide ? 'visibility_off' : 'visibility' -->
                         </mat-chip-list>
                     </div>
 
                     <div>
                         <mat-form-field class="example-full-width">
                             <mat-label style="width: 30%; height: 40px;">Komentaras</mat-label>
-                            <textarea matInput></textarea>
+                            <textarea [(ngModel)]="klausimas.komentaras" matInput></textarea>
                         </mat-form-field>
                     </div>
                 </div>
