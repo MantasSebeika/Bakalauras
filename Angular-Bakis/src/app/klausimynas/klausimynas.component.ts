@@ -16,15 +16,17 @@ export class KlausimynasComponent implements OnInit {
 
 
 
+        if (klausimas.atsakymas != undefined) {
 
-        const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-        this.client.post<boolean>("http://localhost:8081/atsakymai", `{"klausimoid": "${klausimas.klausimoid}", "vartotojoid":"${klausimas.vartotojoid}", "atsakymas":"${klausimas.atsakymas}", "komentarai": "${klausimas.komentaras}"}`, { headers: headers }).subscribe(resp => {
-          if (resp) {
-          }
-          else
-            alert("Neteisingi duomenys")
-        })
 
+          const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+          this.client.post<boolean>("http://localhost:8081/atsakymai", `{"klausimoid": "${klausimas.klausimoid}", "vartotojoid":"${klausimas.vartotojoid}", "atsakymas":"${klausimas.atsakymas}", "komentarai": "${klausimas.komentaras}"}`, { headers: headers }).subscribe(resp => {
+            if (resp) {
+            }
+            else
+              alert("Neteisingi duomenys")
+          })
+        }
 
 
 
@@ -32,6 +34,20 @@ export class KlausimynasComponent implements OnInit {
       })
     })
   }
+
+  paryskinti(kategorija: string, id: string, reiksme: string) {
+    var kat = this.kategorijos.find(kategorijaats => kategorijaats.kategorija == kategorija);
+
+    var klausIndex = kat.klausimai.findIndex(Klausimas => Klausimas.klausimoid == id);
+
+    if (kat.klausimai[klausIndex].atsakymas == reiksme) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
 
   mygtukas(kategorija: string, id: string, reiksme: string) {
 
@@ -51,15 +67,20 @@ export class KlausimynasComponent implements OnInit {
 
   ngOnInit(): void {
     this.kategorijos = new Array<Kategorija>();
-
-    this.client.get<Klausimasdto[]>("http://localhost:8081/klausimai").subscribe(resp => {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+    this.client.post<Klausimasdto[]>("http://localhost:8081/klausimai",`{"vartotojoid": "${this.cookies.get("loginas")}"}`, { headers: headers }).subscribe(resp => {
       resp.forEach(dto => {
 
         var ats = new Atsakymas();
         ats.klausimoid = dto.id;
         ats.vartotojoid = this.cookies.get("loginas");
         ats.atsakymas = dto.atsakymas;
-        ats.komentaras = dto.komentaras;
+
+        if (dto.komentarai == undefined) {
+          dto.komentarai = "";
+        }
+
+        ats.komentaras = dto.komentarai;
         ats.klausimas = dto.klausimas;
         ats.tipas = dto.tipas;
 
@@ -103,7 +124,7 @@ export class Kategorija {
 export class Klausimasdto {
   public id: string;
   public atsakymas: string;
-  public komentaras: string;
+  public komentarai: string;
   public kategorija: string;
   public subkategorija: string;
   public klausimas: string;

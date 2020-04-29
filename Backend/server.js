@@ -17,9 +17,9 @@ Klausimynas.run("CREATE TABLE IF NOT EXISTS administratoriai (id TEXT, pastas TE
 Klausimynas.run("CREATE TABLE IF NOT EXISTS vartotojai (id TEXT, imonespavadinimas TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS klausimai (id TEXT, klausimas TEXT, kategorija TEXT, tipas TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS atsakymai (klausimoid TEXT, vartotojoid TEXT, atsakymas TEXT, komentarai TEXT, Constraint Id_Atsakymai UNIQUE (klausimoid, vartotojoid))");
-// ne tik klausimus bet ir atsakymu. ne get o post kai vartotojo id paduosiu tada atsakymu lentoje 
-app.get('/klausimai', function (req, res) {
-  Klausimynas.all("SELECT * from klausimai", [], (err, rows) => {
+
+app.post('/klausimai', function (req, res) {
+  Klausimynas.all(`Select * from klausimai as kl left join atsakymai as ats on kl.id=ats.klausimoid and ats.vartotojoid='${req.body['vartotojoid']}'`, [], (err, rows) => {
     if (err) {
       throw err;
     }
@@ -71,24 +71,24 @@ app.post('/prisijungti', function (req, res) {
 app.post('/atsakymai', function (req, res) {
   Klausimynas.run(`INSERT INTO atsakymai (klausimoid, vartotojoid, atsakymas, komentarai) 
                   VALUES ("${req.body['klausimoid']}", "${req.body['vartotojoid']}", "${req.body['atsakymas']}", "${req.body['komentarai']}")`, [], (err) => {
-   console.log("papilstom1");
-                    if (err) {
+
+    if (err) {
       Klausimynas.run(`UPDATE atsakymai 
                         SET atsakymas="${req.body['atsakymas']}", komentarai="${req.body['komentarai']}"
                         WHERE klausimoid="${req.body['klausimoid']}" and vartotojoid="${req.body['vartotojoid']}"`, [], (err) => {
-                          console.log("papilstom2");
-                          if (err) {
+
+        if (err) {
+
+          
           throw err;
-        } else
-          res.send(true);
+        } 
+
 
       }
       )
-      console.log("papilstom3");
 
 
-    } else
-      res.send(true);
+    }
 
   }
   )

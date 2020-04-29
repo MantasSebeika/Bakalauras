@@ -33,14 +33,12 @@
 
                     <div style="width: 20%;">
                         <mat-chip-list>
-                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '0')">0</mat-chip>
-                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '1')">1</mat-chip>
-                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '2')">2</mat-chip>
-                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '3')">3</mat-chip>
-                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '4')">4</mat-chip>
-                            <mat-chip (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '5')">5</mat-chip>
-                      
-                      <!-- {hide ? 'visibility_off' : 'visibility' -->
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '0')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '0')">0</mat-chip>
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '1')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '1')">1</mat-chip>
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '2')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '2')">2</mat-chip>
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '3')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '3')">3</mat-chip>
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '4')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '4')">4</mat-chip>
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '5')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '5')">5</mat-chip>
                         </mat-chip-list>
                     </div>
 
