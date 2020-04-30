@@ -12,14 +12,15 @@ var cors = require('cors');
 app.use(cors());
 app.options('*', cors());
 
-var Klausimynas = new sqlClient.Database('duomenubaze2');
+var Klausimynas = new sqlClient.Database('duomenubaze5');
 Klausimynas.run("CREATE TABLE IF NOT EXISTS administratoriai (id TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS vartotojai (id TEXT, imonespavadinimas TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS klausimai (id TEXT, klausimas TEXT, kategorija TEXT, tipas TEXT)");
-Klausimynas.run("CREATE TABLE IF NOT EXISTS atsakymai (klausimoid TEXT, vartotojoid TEXT, atsakymas TEXT, komentarai TEXT, Constraint Id_Atsakymai UNIQUE (klausimoid, vartotojoid))");
+Klausimynas.run("CREATE TABLE IF NOT EXISTS atsakymai (klausimoid TEXT, imonesid TEXT, atsakymas TEXT, komentarai TEXT, Constraint Id_Atsakymai UNIQUE (klausimoid, imonesid))");
+Klausimynas.run("CREATE TABLE IF NOT EXISTS imones (id TEXT, imonespavadinimas TEXT)");
 
 app.post('/klausimai', function (req, res) {
-  Klausimynas.all(`Select * from klausimai as kl left join atsakymai as ats on kl.id=ats.klausimoid and ats.vartotojoid='${req.body['vartotojoid']}'`, [], (err, rows) => {
+  Klausimynas.all(`Select * from klausimai as kl left join atsakymai as ats on kl.id=ats.klausimoid and ats.imonesid='${req.body['imonesid']}'`, [], (err, rows) => {
     if (err) {
       throw err;
     }
@@ -69,13 +70,13 @@ app.post('/prisijungti', function (req, res) {
 }
 )
 app.post('/atsakymai', function (req, res) {
-  Klausimynas.run(`INSERT INTO atsakymai (klausimoid, vartotojoid, atsakymas, komentarai) 
-                  VALUES ("${req.body['klausimoid']}", "${req.body['vartotojoid']}", "${req.body['atsakymas']}", "${req.body['komentarai']}")`, [], (err) => {
+  Klausimynas.run(`INSERT INTO atsakymai (klausimoid, imonesid, atsakymas, komentarai) 
+                  VALUES ("${req.body['klausimoid']}", "${req.body['imonesid']}", "${req.body['atsakymas']}", "${req.body['komentarai']}")`, [], (err) => {
 
     if (err) {
       Klausimynas.run(`UPDATE atsakymai 
                         SET atsakymas="${req.body['atsakymas']}", komentarai="${req.body['komentarai']}"
-                        WHERE klausimoid="${req.body['klausimoid']}" and vartotojoid="${req.body['vartotojoid']}"`, [], (err) => {
+                        WHERE klausimoid="${req.body['klausimoid']}" and imonesid="${req.body['imonesid']}"`, [], (err) => {
 
         if (err) {
 

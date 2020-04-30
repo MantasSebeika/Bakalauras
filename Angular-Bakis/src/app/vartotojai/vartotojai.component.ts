@@ -14,45 +14,56 @@ export class VartotojaiComponent implements OnInit {
   constructor(private client: HttpClient, private cookies: CookieService) { }
 
   ngOnInit(): void {
-//     this.imonespavadinimas = new Array<Imone>();
-//     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-//     this.client.post<Vartotojaidto[]>("http://localhost:8081/klausimai",`{"vartotojoid": "${this.cookies.get("loginas")}"}`, { headers: headers }).subscribe(resp => {
-//       resp.forEach(dto => {
+    this.imonespavadinimas = new Array<Imone>();
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+    this.client.post<Vartotojaidto[]>("http://localhost:8081/klausimai",`{"vartotojoid": "${this.cookies.get("loginas")}"}`, { headers: headers }).subscribe(resp => {
+      resp.forEach(dto => {
 
-//         var vart = new 
+        var nauj = new AtnaujintiVart();
+        nauj.imonesid = dto.id;
+        nauj.pastas = this.cookies.get("loginas");
+        nauj.imonespavadinimas = dto.imonespavadinimas;
+        nauj.slaptazodis = dto.slaptazodis;
 
-//   //       // if (this.imonespavadinimas.findIndex(imonespavadinimas => imonespavadinimas.imonespavadinimas == dto.imonespavadinimas) == -1) {
-//   //       //   var vart = new Array<Vartotojai>();
-//   //       //   klArr.push(ats);
 
-//   //       //   var kat = new Kategorija();
-//   //       //   kat.kategorija = dto.kategorija;
-//   //       //   kat.klausimai = klArr;
+        if (this.imonespavadinimas.findIndex(imonespavadinimas => imonespavadinimas.imonespavadinimas == dto.imonespavadinimas) == -1) {
+          var vart = new Array<AtnaujintiVart>();
+          vart.push(nauj);
 
-//   //       //   this.kategorijos.push(kat);
-//   //       // } else {
-//   //       //   var katIndex = this.kategorijos.findIndex(kategorija => kategorija.kategorija == dto.kategorija);
-//   //       //   var kat = this.kategorijos.find(kategorija => kategorija.kategorija == dto.kategorija);
+          var atvar = new Imone();
+          atvar.imonespavadinimas = dto.imonespavadinimas;
+          atvar.vartotojai = vart;
 
-//   //       //   kat.klausimai.push(ats);
+          this.imonespavadinimas.push(atvar);
+        } else {
+          var atvarIndex = this.imonespavadinimas.findIndex(imonespavadinimas => imonespavadinimas.imonespavadinimas == dto.imonespavadinimas);
+          var atvar = this.imonespavadinimas.find(imonespavadinimas => imonespavadinimas.imonespavadinimas == dto.imonespavadinimas);
 
-//   //       //   this.kategorijos[katIndex] = kat;
+          atvar.vartotojai.push(nauj);
 
-//   //       // }
+          this.imonespavadinimas[atvarIndex] = atvar;
 
-//   // })
-// });
+        }
+
+  })
+});
     }
   
   }
-
+export class AtnaujintiVart {
+  public imonesid: string;
+  public imonespavadinimas: string;
+  public pastas: string;
+  public slaptazodis: string;
+}
 
 export class Imone {
   public imonespavadinimas: string;
-  public vartotojai: Imone[];
+  public vartotojai: AtnaujintiVart[];
 }
 
 export class Vartotojaidto {
+  public id: string;
   public imonespavadinimas: string;
   public pastas: string;
   public slaptazodis: string;

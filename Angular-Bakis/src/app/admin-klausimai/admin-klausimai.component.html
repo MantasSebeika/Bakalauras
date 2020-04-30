@@ -1,1 +1,58 @@
-<p>admin-klausimai works!</p>
+<div style="height: 100px;"></div>
+<div style="display: flex; justify-content: center; align-items: center; font-size: xx-large;">
+    <p>
+        IT Klausimynas
+    </p>
+    <button (click)="saugoti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Pateikti</button>
+</div>
+<div style="font-size: medium">
+    <p>Klausimynas yra pildomas pasirenkant viena iš 6 galimų reikšmių:
+        0 - Netaikoma
+        1 - Ne
+        2 – Ne, bet planuojama
+        3 - Dalinai
+        4 - Įgyvendinama
+        5 – Taip
+        Taip pat kiekviename klausime rekomenduojama pakomentuoti ir detalizuoti savo pasirinkimą. Komentaruose svarbu
+        aprašyti kaip sprendimas yra įgyvendintas arba kodėl neįgyvendintas. Kuo detaliau bus pakomentuos klausimynas,
+        tuo detalesnės bus klausimyno išvados ir rekomendacijos.
+    </p>
+</div>
+<div class="marginas" *ngFor="let kategorija of kategorijos; index as i;">
+    <h2> {{kategorija.kategorija}} </h2>
+    <mat-card>
+        <div class="marginas">
+
+            <mat-card *ngFor="let klausimas of kategorija.klausimai; index as in;">
+
+                <div style="height: 100%; width: 100%; display: flex; justify-content: space-between; align-items: center;">
+
+                    <div style="width: 50%; height: 100%;">
+                            <span>{{klausimas.klausimas}}</span>
+                    </div>
+
+                    <div style="width: 20%;">
+                        <mat-chip-list>
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '0')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '0')">0</mat-chip>
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '1')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '1')">1</mat-chip>
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '2')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '2')">2</mat-chip>
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '3')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '3')">3</mat-chip>
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '4')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '4')">4</mat-chip>
+                            <mat-chip [ngClass]="{paryskintas: paryskinti(kategorija.kategorija, klausimas.klausimoid, '5')}" (click)="mygtukas(kategorija.kategorija,klausimas.klausimoid, '5')">5</mat-chip>
+                        </mat-chip-list>
+                    </div>
+
+                    <div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label style="width: 30%; height: 40px;">Komentaras</mat-label>
+                            <textarea [(ngModel)]="klausimas.komentaras" matInput></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </mat-card>
+            <mat-divider></mat-divider>
+        </div>
+    </mat-card>
+    <mat-divider></mat-divider>
+</div>

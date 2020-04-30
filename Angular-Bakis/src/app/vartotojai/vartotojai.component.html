@@ -1,11 +1,27 @@
-<div style="width:100%; height: 100%; background-color: rgb(38, 38, 38); display: flex; justify-content: center; align-items: center;">
-    <div>
-        <p style="color:white; font-size: xx-large;" >
-        IT KLAUSIMYNAS  
+<div style="height: 100px;"></div>
+<div style="display: flex; justify-content: center; align-items: center; font-size: xx-large;">
+    <p>
+        Vartotojų sąrašas
     </p>
-    <p style="color:white; font-size: medium;">
-        Sveiki, šioje svetainėje galėsite greitai ir patogiai užsipildyti IT klausimyna
-    </p>
-        <button [routerLink]="['/klausimynas']" mat-raised-button class="marginas">Pildyti Klausimyną</button>
-    </div>
-    </div>
+</div>
+<div class="marginas" *ngFor="let imone of imonespavadinimas; index as i;">
+    <h2> {{imone.imonespavadinimas}} </h2>
+    <mat-card>
+        <div class="marginas">
+
+            <mat-card *ngFor="let pastas of imone.imonespavadinimas; index as in;">
+
+                <div style="height: 100%; width: 100%; display: flex; justify-content: space-between; align-items: center;">
+
+                    <div style="width: 50%; height: 100%;">
+                            <span>{{pastas.pastas}}</span>
+                    </div>
+
+                </div>
+
+            </mat-card>
+            <mat-divider></mat-divider>
+        </div>
+    </mat-card>
+    <mat-divider></mat-divider>
+</div>
