@@ -22,6 +22,7 @@ export class KlausimynasComponent implements OnInit {
           const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
           this.client.post<boolean>("http://localhost:8081/atsakymai", `{"klausimoid": "${klausimas.klausimoid}", "vartotojoid":"${klausimas.vartotojoid}", "atsakymas":"${klausimas.atsakymas}", "komentarai": "${klausimas.komentaras}"}`, { headers: headers }).subscribe(resp => {
             if (resp) {
+              
             }
             else
               alert("Neteisingi duomenys")

@@ -21,6 +21,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
+import { VartotojaiComponent } from './vartotojai/vartotojai.component';
+import { AdminKlausimaiComponent } from './admin-klausimai/admin-klausimai.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import {CookieService} from 'ngx-cookie-service';
     KontaktaiComponent,
     FooterComponent,
     PrisijungimasComponent,
+    VartotojaiComponent,
+    AdminKlausimaiComponent,
   ],
   imports: [
     BrowserModule,
