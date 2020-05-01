@@ -9,12 +9,14 @@
     <mat-card>
         <div class="marginas">
 
-            <mat-card *ngFor="let pastas of imone.imonespavadinimas; index as in;">
+            <mat-card *ngFor="let vartotojas of imone.vartotojai; index as in;">
 
                 <div style="height: 100%; width: 100%; display: flex; justify-content: space-between; align-items: center;">
 
                     <div style="width: 50%; height: 100%;">
-                            <span>{{pastas.pastas}}</span>
+                            <span>{{vartotojas.pastas}}</span>
+                            <button (click)="istrinti(vartotojas.id)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Ištrinti</button>
+
                     </div>
 
                 </div>

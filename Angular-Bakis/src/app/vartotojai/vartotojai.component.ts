@@ -9,6 +9,22 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class VartotojaiComponent implements OnInit {
 
+  istrinti(id: string) {
+
+
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+    this.client.post("http://localhost:8081/vartotojai/delete", `{"id":"${id}"}`, { headers: headers }).subscribe(resp => {
+      if (resp) {
+this.ngOnInit();
+      }
+      else
+        alert("Neteisingi duomenys")
+          
+        
+    }
+    )
+}
+
   public imonespavadinimas: Imone[];
 
   constructor(private client: HttpClient, private cookies: CookieService) { }
@@ -16,13 +32,13 @@ export class VartotojaiComponent implements OnInit {
   ngOnInit(): void {
     this.imonespavadinimas = new Array<Imone>();
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post<Vartotojaidto[]>("http://localhost:8081/klausimai",`{"vartotojoid": "${this.cookies.get("loginas")}"}`, { headers: headers }).subscribe(resp => {
+    this.client.get<Vartotojaidto[]>("http://localhost:8081/vartotojai").subscribe(resp => {
       resp.forEach(dto => {
 
         var nauj = new AtnaujintiVart();
-        nauj.imonesid = dto.id;
-        nauj.pastas = this.cookies.get("loginas");
-        nauj.imonespavadinimas = dto.imonespavadinimas;
+        nauj.id = dto.id;
+        // nauj.imonesid = dto.id;
+        nauj.pastas = dto.pastas
         nauj.slaptazodis = dto.slaptazodis;
 
 
@@ -45,14 +61,14 @@ export class VartotojaiComponent implements OnInit {
 
         }
 
-  })
-});
-    }
-  
+      })
+    });
   }
+
+}
 export class AtnaujintiVart {
   public imonesid: string;
-  public imonespavadinimas: string;
+  public id: string;
   public pastas: string;
   public slaptazodis: string;
 }

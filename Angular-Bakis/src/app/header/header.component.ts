@@ -17,18 +17,13 @@ public klausimai:Klausimas[];
     }
 
   ngOnInit(): void {
-    this.backas();
   }
 
   kelias(){
     this.router.navigateByUrl("Test2");
     
   } 
-  backas(){
-    this.http.get("http://localhost:8081/klausimai").subscribe((data: Klausimas[]) =>
-      this.klausimai=data
-  );
-  }
+
   atsijungti() {
     this.cookies.delete("loginas")
   }
