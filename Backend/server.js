@@ -19,6 +19,24 @@ Klausimynas.run("CREATE TABLE IF NOT EXISTS klausimai (id TEXT, klausimas TEXT, 
 Klausimynas.run("CREATE TABLE IF NOT EXISTS atsakymai (klausimoid TEXT, imonesid TEXT, atsakymas TEXT, komentarai TEXT, Constraint Id_Atsakymai UNIQUE (klausimoid, imonesid))");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS imones (id TEXT, imonespavadinimas TEXT)");
 
+app.post ('/vartotojai/update', function (req, res){
+
+  Klausimynas.run(`UPDATE vartotojai 
+  SET pastas="${req.body['pastas']}", slaptazodis="${req.body['slaptazodis']}"
+  WHERE id="${req.body['id']}"`, [], (err) => {
+
+if (err) {
+throw err;
+} 
+res.send(true);
+}
+
+)
+}
+)
+
+
+
 app.post ('/vartotojai/delete', function (req, res){
 
   Klausimynas.run (`DELETE from vartotojai where id='${req.body['id']}'`, [], (err) => {

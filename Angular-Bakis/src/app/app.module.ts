@@ -24,6 +24,8 @@ import {CookieService} from 'ngx-cookie-service';
 import { VartotojaiComponent } from './vartotojai/vartotojai.component';
 import { AdminKlausimaiComponent } from './admin-klausimai/admin-klausimai.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { DialogOverviewExampleDialog } from './vartotojai/popup';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     PrisijungimasComponent,
     VartotojaiComponent,
     AdminKlausimaiComponent,
+    DialogOverviewExampleDialog,
+
+
   ],
   imports: [
     BrowserModule,
@@ -54,6 +59,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     MatDialogModule
   ],
+
+  entryComponents: [
+    DialogOverviewExampleDialog
+  ],
+  
   providers: [CookieService],
   bootstrap: [AppComponent]
 })

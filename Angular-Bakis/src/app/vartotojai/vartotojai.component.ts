@@ -2,54 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DialogOverviewExampleDialog } from './popup';
 
-
-
-// export interface DialogData {
-//   animal: string;
-//   name: string;
-// }
-
-// @Component({
-//   selector: 'app-vartotojai',
-//   templateUrl: './popup.html',
-// })
-// export class DialogOverviewExample {
-
-//   animal: string;
-//   name: string;
-
-//   constructor(public dialog: MatDialog) {}
-
-//   openDialog(): void {
-//     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-//       width: '250px',
-//       data: {name: this.name, animal: this.animal}
-//     });
-
-//     dialogRef.afterClosed().subscribe(result => {
-//       console.log('The dialog was closed');
-//       this.animal = result;
-//     });
-//   }
-
-// }
-
-// @Component({
-//   selector: 'app-vartotojai',
-//   templateUrl: './popup.html',
-// })
-// export class DialogOverviewExampleDialog {
-
-//   constructor(
-//     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-//     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-//   onNoClick(): void {
-//     this.dialogRef.close();
-//   }
-
-// }
 
 @Component({
   selector: 'app-vartotojai',
@@ -58,7 +12,28 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 })
 export class VartotojaiComponent implements OnInit {
 
+iskvietipopup(vartotojas: AtnaujintiVart){
+  
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: vartotojas
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      var atnaujinti: AtnaujintiVart=result;
+      const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+    this.client.post("http://localhost:8081/vartotojai/update", `{"id":"${atnaujinti.id}", "pastas":"${atnaujinti.pastas}", "slaptazodis":"${atnaujinti.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
+      if (resp) {
+this.ngOnInit();
+      }
+      else
+        alert("Neteisingi duomenys")
+          
+        
+    }
+    )
+    });
+  }
 
   istrinti(id: string) {
 
@@ -78,7 +53,7 @@ this.ngOnInit();
 
   public imonespavadinimas: Imone[];
 
-  constructor(private client: HttpClient, private cookies: CookieService) { }
+  constructor(private client: HttpClient, private cookies: CookieService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.imonespavadinimas = new Array<Imone>();
