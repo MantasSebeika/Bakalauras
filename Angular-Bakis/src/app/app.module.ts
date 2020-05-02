@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import { VartotojaiComponent } from './vartotojai/vartotojai.component';
 import { AdminKlausimaiComponent } from './admin-klausimai/admin-klausimai.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AdminKlausimaiComponent } from './admin-klausimai/admin-klausimai.compo
     MatChipsModule,
     MatFormFieldModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
