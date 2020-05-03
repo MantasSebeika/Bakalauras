@@ -63,7 +63,6 @@ import { DialogOverviewExampleDialog } from './vartotojai/popup';
   entryComponents: [
     DialogOverviewExampleDialog
   ],
-  
   providers: [CookieService],
   bootstrap: [AppComponent]
 })

@@ -3,7 +3,7 @@
     <p>
         Vartotojų sąrašas
     </p>
-    <button style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Sukurti naują vartotoja</button>
+    <button (click)="iskvietipopupnew(vartotojas)" style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Sukurti naują vartotoja</button>
 </div>
 <div class="marginas" *ngFor="let imone of imonespavadinimas; index as i;">
     <h2> {{imone.imonespavadinimas}} </h2>

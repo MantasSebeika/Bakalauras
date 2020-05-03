@@ -12,6 +12,29 @@ import { DialogOverviewExampleDialog } from './popup';
 })
 export class VartotojaiComponent implements OnInit {
 
+  iskvietipopupnew(vartotojas: AtnaujintiVart){
+  
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: vartotojas
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      var naujas: AtnaujintiVart=result;
+      const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+    this.client.post("http://localhost:8081/vartotojai/new", `{"id":"${naujas.id}", "pastas":"${naujas.pastas}", "slaptazodis":"${naujas.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
+      if (resp) {
+this.ngOnInit();
+      }
+      else
+        alert("Neteisingi duomenys")
+          
+        
+    }
+    )
+    });
+  }
+
 iskvietipopup(vartotojas: AtnaujintiVart){
   
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
@@ -63,7 +86,6 @@ this.ngOnInit();
 
         var nauj = new AtnaujintiVart();
         nauj.id = dto.id;
-        // nauj.imonesid = dto.id;
         nauj.pastas = dto.pastas
         nauj.slaptazodis = dto.slaptazodis;
 

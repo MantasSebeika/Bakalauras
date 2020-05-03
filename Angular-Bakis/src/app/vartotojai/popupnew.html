@@ -1,0 +1,15 @@
+<div mat-dialog-content>
+    <p>Redagavimas</p>
+    <mat-form-field>
+      <mat-label>Pakeisti pašta</mat-label>
+      <input matInput [(ngModel)]="vartatnaujinti.pastas">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Pakeisti slaptažodį</mat-label>
+      <input matInput [(ngModel)]="vartatnaujinti.slaptazodis">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Atšaukti</button>
+    <button mat-button [mat-dialog-close]="vartatnaujinti" cdkFocusInitial>Pakeisti</button>
+  </div>
