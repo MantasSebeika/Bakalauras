@@ -25,6 +25,7 @@ import { VartotojaiComponent } from './vartotojai/vartotojai.component';
 import { AdminKlausimaiComponent } from './admin-klausimai/admin-klausimai.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogOverviewExampleDialog } from './vartotojai/popup';
+import { DialogOverviewExampleDialognew } from './vartotojai/popupnew';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { DialogOverviewExampleDialog } from './vartotojai/popup';
     VartotojaiComponent,
     AdminKlausimaiComponent,
     DialogOverviewExampleDialog,
+    DialogOverviewExampleDialognew
 
 
   ],
@@ -61,7 +63,8 @@ import { DialogOverviewExampleDialog } from './vartotojai/popup';
   ],
 
   entryComponents: [
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    DialogOverviewExampleDialognew
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

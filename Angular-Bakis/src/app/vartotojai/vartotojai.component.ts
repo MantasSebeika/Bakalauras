@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DialogOverviewExampleDialog } from './popup';
+import { DialogOverviewExampleDialognew } from './popupnew';
 
 
 @Component({
@@ -12,17 +13,16 @@ import { DialogOverviewExampleDialog } from './popup';
 })
 export class VartotojaiComponent implements OnInit {
 
-  iskvietipopupnew(vartotojas: AtnaujintiVart){
+  iskvietipopupnew(){
   
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialognew, {
       width: '250px',
-      data: vartotojas
     });
 
     dialogRef.afterClosed().subscribe(result => {
       var naujas: AtnaujintiVart=result;
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post("http://localhost:8081/vartotojai/new", `{"id":"${naujas.id}", "pastas":"${naujas.pastas}", "slaptazodis":"${naujas.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
+    this.client.post("http://localhost:8081/vartotojai/new", `{"imonespavadinimas":"${naujas.imonespavadinimas}", "pastas":"${naujas.pastas}", "slaptazodis":"${naujas.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
 this.ngOnInit();
       }
@@ -116,6 +116,7 @@ this.ngOnInit();
 }
 export class AtnaujintiVart {
   public imonesid: string;
+  public imonespavadinimas: string;
   public id: string;
   public pastas: string;
   public slaptazodis: string;

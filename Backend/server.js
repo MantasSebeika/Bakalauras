@@ -21,7 +21,7 @@ Klausimynas.run("CREATE TABLE IF NOT EXISTS imones (id TEXT, imonespavadinimas T
 
 app.post ('/vartotojai/new', function (req, res){
 
-  Klausimynas.run(`INSERT INTO vartotojai (imonespavadinimas, pastas, slaptazodis) VALUES ("${req.body['pastas']}", slaptazodis="${req.body['slaptazodis']}")`, [], (err) => {
+  Klausimynas.run(`INSERT INTO vartotojai (imonespavadinimas, pastas, slaptazodis) VALUES ("${req.body['imonespavadinimas']}" ,"${req.body['pastas']}", "${req.body['slaptazodis']}")`, [], (err) => {
 
 if (err) {
 throw err;
