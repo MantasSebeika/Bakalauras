@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
     ) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        var sausainiukas = this.cookies.get("loginas")
+        var sausainiukas = this.cookies.get("loginasAdmin")
         if (sausainiukas != "")
             return true;
         else {
