@@ -8,15 +8,17 @@ import { PrisijungimasComponent } from './prisijungimas/prisijungimas.component'
 import { VartotojaiComponent } from './vartotojai/vartotojai.component';
 import { AdminKlausimaiComponent } from './admin-klausimai/admin-klausimai.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
-
+import { PrisijungimasAdminComponent } from './prisijungimas-admin/prisijungimas-admin.component';
+import { RoleGuard } from './guards/auth.guard.admin';
 
 const routes: Routes = [ 
 { path: 'klausimynas', component: KlausimynasComponent, canActivate: [AuthGuard]},
 { path: 'kontaktai', component: KontaktaiComponent },
-{ path: 'admin_klausimai', component: AdminKlausimaiComponent, canActivate: [AuthGuard]},
-{ path: 'vartotojai', component: VartotojaiComponent, canActivate: [AuthGuard]},
-{ path: 'admin_home', component: AdminHomeComponent, canActivate: [AuthGuard]},
+{ path: 'admin_klausimai', component: AdminKlausimaiComponent, canActivate: [RoleGuard]},
+{ path: 'vartotojai', component: VartotojaiComponent, canActivate: [RoleGuard]},
+{ path: 'admin-home', component: AdminHomeComponent, canActivate: [RoleGuard]},
 { path: 'prisijungimas', component: PrisijungimasComponent},
+{ path: 'prisijungimas_admin', component: PrisijungimasAdminComponent},
 { path:"**", component: PradziaComponent}];
 
 @NgModule({

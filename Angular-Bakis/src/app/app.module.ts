@@ -27,6 +27,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogOverviewExampleDialog } from './vartotojai/popup';
 import { DialogOverviewExampleDialognew } from './vartotojai/popupnew';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { PrisijungimasAdminComponent } from './prisijungimas-admin/prisijungimas-admin.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     AdminKlausimaiComponent,
     DialogOverviewExampleDialog,
     DialogOverviewExampleDialognew,
-    AdminHomeComponent
+    AdminHomeComponent,
+    PrisijungimasAdminComponent
 
 
   ],

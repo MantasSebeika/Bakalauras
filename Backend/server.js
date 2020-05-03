@@ -123,6 +123,22 @@ app.post('/prisijungti', function (req, res) {
 
 }
 )
+
+app.post('/prisijungtiadmin', function (req, res) {
+  Klausimynas.all(`SELECT * from administratoriai where pastas="${req.body['pastas']}" and slaptazodis="${req.body['slaptazodis']}"`, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    if (rows.length == 0) {
+      res.send(false);
+    } else
+      res.send(true);
+  }
+  )
+
+}
+)
+
 app.post('/atsakymai', function (req, res) {
   Klausimynas.run(`INSERT INTO atsakymai (klausimoid, imonesid, atsakymas, komentarai) 
                   VALUES ("${req.body['klausimoid']}", "${req.body['imonesid']}", "${req.body['atsakymas']}", "${req.body['komentarai']}")`, [], (err) => {
