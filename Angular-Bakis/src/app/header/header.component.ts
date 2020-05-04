@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -26,15 +27,44 @@ public klausimai:Klausimas[];
 
   atsijungti() {
     this.cookies.delete("loginas")
+    this.cookies.delete("loginasAdmin")
   }
+
+  adminklausimynas() {
+    var adminsausianiukas = this.cookies.get("loginasAdmin")
+        if (adminsausianiukas != "")
+        this.router.navigateByUrl("/admin_klausimai")
+        
+        else  
+        
+          this.router.navigateByUrl("/klausimynas")
+        
+        
+  }
+
+  adminpradzia() {
+    var adminsausianiukas = this.cookies.get("loginasAdmin")
+        if (adminsausianiukas != "")
+        this.router.navigateByUrl("/admin-home")
+        
+        else  
+        
+          this.router.navigateByUrl("/")
+        
+  }
+
+
   nerodyti() {
     var sausainiukas = this.cookies.get("loginas")
-        if (sausainiukas != "")
+    var adminsausianiukas = this.cookies.get("loginasAdmin")
+        if (sausainiukas != "" || adminsausianiukas != "" )
             return true;
-        else {
+        else 
+        {
             return false;
         }
   }
+  
   pastas() {
 return this.cookies.get("loginas");
 

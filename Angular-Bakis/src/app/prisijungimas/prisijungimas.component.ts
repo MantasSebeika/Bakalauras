@@ -23,6 +23,7 @@ export class PrisijungimasComponent implements OnInit {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post<boolean>("http://localhost:8081/prisijungti", `{"pastas": "${this.email.email}", "slaptazodis":"${this.slaptazodis.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
+        this.cookies.delete ("loginasAdmin")
         this.cookies.set("loginas", this.email.email)
         this.route.navigateByUrl("/klausimynas")
       }

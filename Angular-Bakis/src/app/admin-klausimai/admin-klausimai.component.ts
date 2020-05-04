@@ -8,46 +8,20 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./admin-klausimai.component.scss']
 })
 export class AdminKlausimaiComponent implements OnInit {
-  saugoti() {
-    this.kategorijos.forEach(kategorija => {
-      kategorija.klausimai.forEach(klausimas => {
+  
+  istrintiklausima(klausimoid: string) {
 
-
-
-
-        if (klausimas.atsakymas != undefined) {
-
-
-          const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-          this.client.post<boolean>("http://localhost:8081/atsakymai", `{"klausimoid": "${klausimas.klausimoid}", "vartotojoid":"${klausimas.vartotojoid}", "atsakymas":"${klausimas.atsakymas}", "komentarai": "${klausimas.komentaras}"}`, { headers: headers }).subscribe(resp => {
-            if (resp) {
-              
-            }
-            else
-              alert("Neteisingi duomenys")
-          })
-        }
-
-
-
-
-      })
-    })
-  }
-
-  paryskinti(kategorija: string, id: string, reiksme: string) {
-    var kat = this.kategorijos.find(kategorijaats => kategorijaats.kategorija == kategorija);
-
-    var klausIndex = kat.klausimai.findIndex(Klausimas => Klausimas.klausimoid == id);
-
-    if (kat.klausimai[klausIndex].atsakymas == reiksme) {
-      return true;
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+    this.client.post("http://localhost:8081/klausimai/delete", `{"id":"${klausimoid}"}`, { headers: headers }).subscribe(resp => {
+      if (resp) {
+this.ngOnInit();
+      }
+      else
+        alert("Neteisingi duomenys")
+        
     }
-    else {
-      return false;
-    }
-  }
-
+    )
+}
 
   mygtukas(kategorija: string, id: string, reiksme: string) {
 

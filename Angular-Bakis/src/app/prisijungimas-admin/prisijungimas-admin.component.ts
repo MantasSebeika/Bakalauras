@@ -25,6 +25,7 @@ export class PrisijungimasAdminComponent implements OnInit {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post<boolean>("http://localhost:8081/prisijungtiadmin", `{"pastas": "${this.email.email}", "slaptazodis":"${this.slaptazodis.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
+        this.cookies.delete("loginas")
         this.cookies.set("loginasAdmin", this.email.email)
         this.route.navigateByUrl("/admin-home")
       }

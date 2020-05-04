@@ -1,7 +1,7 @@
 <div class="example-button-row" style="display: flex; justify-content: space-between; width: 100%">
   <div>
-  <button style="border-style: solid; border-radius: 15px; width: 150px" [routerLink]="['/']" mat-raised-button class="marginas">Pradžia</button>
-  <button style="border-style: solid; border-radius: 15px; width: 150px" [routerLink]="['/klausimynas']" mat-raised-button class="marginas">Klausimynas</button>
+  <button style="border-style: solid; border-radius: 15px; width: 150px" (click)="adminpradzia()" mat-raised-button class="marginas">Pradžia</button>
+  <button style="border-style: solid; border-radius: 15px; width: 150px" (click)="adminklausimynas()" mat-raised-button class="marginas">Klausimynas</button>
   <button style="border-style: solid; border-radius: 15px; width: 150px" [routerLink]="['/kontaktai']" mat-raised-button class="marginas">Kontaktai</button>
 </div>  
   <div>

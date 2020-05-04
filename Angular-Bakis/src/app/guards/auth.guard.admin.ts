@@ -14,7 +14,7 @@ export class RoleGuard implements CanActivate {
         if (sausainiukas != "")
             return true;
         else {
-            this.router.navigate(['/prisijungimas-admin']);
+            this.router.navigate(['/prisijungimas_admin']);
         }
 
 

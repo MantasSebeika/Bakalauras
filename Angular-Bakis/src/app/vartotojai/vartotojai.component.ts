@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { CookieService} from 'ngx-cookie-service';
+import {MatDialog} from '@angular/material/dialog';
 import { DialogOverviewExampleDialog } from './popup';
 import { DialogOverviewExampleDialognew } from './popupnew';
 

@@ -1,5 +1,5 @@
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Inject, Component } from '@angular/core';
+import { MatDialogRef} from '@angular/material/dialog';
+import { Component } from '@angular/core';
 import { AtnaujintiVart } from './vartotojai.component';
 
 @Component({
