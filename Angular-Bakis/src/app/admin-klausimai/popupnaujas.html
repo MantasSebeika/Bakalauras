@@ -1,0 +1,19 @@
+<div mat-dialog-content>
+    <p>Pridėti naują vartotoją</p>
+    <mat-form-field>
+      <mat-label>Įmonės pavadinimas</mat-label>
+      <input matInput [(ngModel)]="vartatprideti.imonespavadinimas">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>El.paštas</mat-label>
+      <input matInput [(ngModel)]="vartatprideti.pastas">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Slaptažodis</mat-label>
+      <input matInput [(ngModel)]="vartatprideti.slaptazodis">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Atšaukti</button>
+    <button mat-button [mat-dialog-close]="vartatprideti" cdkFocusInitial>Pridėti</button>
+  </div>
