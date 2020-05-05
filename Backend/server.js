@@ -10,139 +10,146 @@ app.use(cors());
 app.options('*', cors());
 
 
-app.get('/excelgenerate', function (req, res){
-const Excel = require('exceljs');
+app.get('/excelgenerate', function (req, res) {
+  const Excel = require('exceljs');
 
-var options = {
-  filename: './streamed-workbook.xlsx',
-  useStyles: true,
-  useSharedStrings: true
-};
-var workbook = new Excel.stream.xlsx.WorkbookWriter(options);
-var sheet = workbook.addWorksheet('IT Klausimynas');
-sheet.getCell('A1').value="Įmonė:";
-sheet.getCell('C1').value="Vartotojas:";
-sheet.getCell('A2').value="Kategorija";
-sheet.getCell('B2').value="Klausimas";
-sheet.getCell('C2').value="Atsakymas";
-sheet.getCell('D2').value="Komentaras";
-sheet.getCell('E2').value="Identifikuota rizika";
-sheet.getCell('F2').value="Rekomendacija";
-sheet.getCell('G2').value="Svarba";
+  var options = {
+    filename: './streamed-workbook.xlsx',
+    useStyles: true,
+    useSharedStrings: true
+  };
+  var workbook = new Excel.stream.xlsx.WorkbookWriter(options);
+  var sheet = workbook.addWorksheet('IT Klausimynas');
+  sheet.getCell('A1').value = "Įmonė:";
+  sheet.getCell('C1').value = "Vartotojas:";
+  sheet.getCell('A2').value = "Kategorija";
+  sheet.getCell('B2').value = "Klausimas";
+  sheet.getCell('C2').value = "Atsakymas";
+  sheet.getCell('D2').value = "Komentaras";
+  sheet.getCell('E2').value = "Identifikuota rizika";
+  sheet.getCell('F2').value = "Rekomendacija";
+  sheet.getCell('G2').value = "Svarba";
+  sheet.getCell('G2').value = "Svarba";
+
+  Klausimynas.all(`Select * from klausimai`, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    var index = 3;
+    
+    rows.forEach(row => {
+      sheet.getCell('A' + index).value = row["kategorija"];
+      sheet.getCell('B' + index).value = row["klausimas"];
+      sheet.getCell('C' + index).value = row["atsakymas"];
+      sheet.getCell('D' + index).value = row["komentaras"];
+      index = index + 1;
+    })
+
+    sheet.commit();
+    workbook.commit();
+    res.send(true);
+  });
 
 
-Klausimynas.all(`Select * from klausimai`, [], (err, rows) => {
-  if (err) {
-    throw err;
-  }
-  rows.forEach(row =>{
-    // sheet.getCell('B3').value=row["klausimas"];
-console.log(row);
-  })
-});
 
 
-
-sheet.commit();
-workbook.commit();
-res.send(true);
 }
 )
 
-var Klausimynas = new sqlClient.Database('duomenubaze5');
+var Klausimynas = new sqlClient.Database('duomenubaze6');
 Klausimynas.run("CREATE TABLE IF NOT EXISTS administratoriai (id TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS vartotojai (id TEXT, imonespavadinimas TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS klausimai (id TEXT, klausimas TEXT, kategorija TEXT, tipas TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS atsakymai (klausimoid TEXT, imonesid TEXT, atsakymas TEXT, komentarai TEXT, Constraint Id_Atsakymai UNIQUE (klausimoid, imonesid))");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS imones (id TEXT, imonespavadinimas TEXT)");
 
-app.post ('/klausimai/update', function (req, res){
+app.post('/klausimai/update', function (req, res) {
 
   Klausimynas.run(`UPDATE klausimai 
   SET kategorija="${req.body['kategorija']}", klausimas="${req.body['klausimas']}"
   WHERE id="${req.body['id']}"`, [], (err) => {
 
-if (err) {
-throw err;
-} 
-res.send(true);
+    if (err) {
+      throw err;
+    }
+    res.send(true);
+  }
+
+  )
 }
-
-)
-}
 )
 
 
-app.post ('/klausimai/new', function (req, res){
+app.post('/klausimai/new', function (req, res) {
 
   Klausimynas.run(`INSERT INTO klausimai (id, kategorija, klausimas, tipas) VALUES ("${guid.v4()}", "${req.body['kategorija']}" ,"${req.body['klausimas']}", "random")`, [], (err) => {
     if (err) {
       throw err;
     }
-    
+
   });
   res.send(true);
 })
 
 
-app.post ('/klausimai/delete', function (req, res){
+app.post('/klausimai/delete', function (req, res) {
 
-  Klausimynas.run (`DELETE from klausimai where id='${req.body['id']}'`, [], (err) => {
+  Klausimynas.run(`DELETE from klausimai where id='${req.body['id']}'`, [], (err) => {
     if (err) {
       throw err;
     }
-    
+
   });
   res.send(true);
 })
 
-app.post ('/vartotojai/new', function (req, res){
+app.post('/vartotojai/new', function (req, res) {
 
   Klausimynas.run(`INSERT INTO vartotojai (id, imonespavadinimas, pastas, slaptazodis) VALUES ("${guid.v4()}", "${req.body['imonespavadinimas']}" ,"${req.body['pastas']}", "${req.body['slaptazodis']}")`, [], (err) => {
 
-if (err) {
-throw err;
-} 
-res.send(true);
+    if (err) {
+      throw err;
+    }
+    res.send(true);
+  }
+
+  )
 }
-
-)
-}
 )
 
 
-app.post ('/vartotojai/update', function (req, res){
+app.post('/vartotojai/update', function (req, res) {
 
   Klausimynas.run(`UPDATE vartotojai 
   SET pastas="${req.body['pastas']}", slaptazodis="${req.body['slaptazodis']}"
   WHERE id="${req.body['id']}"`, [], (err) => {
 
-if (err) {
-throw err;
-} 
-res.send(true);
-}
-
-)
-}
-)
-
-
-
-app.post ('/vartotojai/delete', function (req, res){
-
-  Klausimynas.run (`DELETE from vartotojai where id='${req.body['id']}'`, [], (err) => {
     if (err) {
       throw err;
     }
-    
+    res.send(true);
+  }
+
+  )
+}
+)
+
+
+
+app.post('/vartotojai/delete', function (req, res) {
+
+  Klausimynas.run(`DELETE from vartotojai where id='${req.body['id']}'`, [], (err) => {
+    if (err) {
+      throw err;
+    }
+
   });
   res.send("Ištrinta");
 })
 
-app.get ('/vartotojai', function (req, res){
+app.get('/vartotojai', function (req, res) {
 
-  Klausimynas.all (`Select * from vartotojai`, [], (err, rows) => {
+  Klausimynas.all(`Select * from vartotojai`, [], (err, rows) => {
     if (err) {
       throw err;
     }
@@ -236,9 +243,9 @@ app.post('/atsakymai', function (req, res) {
 
         if (err) {
 
-          
+
           throw err;
-        } 
+        }
 
 
       }

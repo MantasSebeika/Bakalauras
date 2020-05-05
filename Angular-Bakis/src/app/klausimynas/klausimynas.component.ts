@@ -69,11 +69,19 @@ export class KlausimynasComponent implements OnInit {
   ngOnInit(): void {
     this.kategorijos = new Array<Kategorija>();
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post<Klausimasdto[]>("http://localhost:8081/klausimaiadmin", { headers: headers }).subscribe(resp => {
+    this.client.post<Klausimasdto[]>("http://localhost:8081/klausimai",`{"vartotojoid": "${this.cookies.get("loginas")}"}`, { headers: headers }).subscribe(resp => {
       resp.forEach(dto => {
 
         var ats = new Atsakymas();
         ats.klausimoid = dto.id;
+        ats.vartotojoid = this.cookies.get("loginas");
+        ats.atsakymas = dto.atsakymas;
+          
+        if (dto.komentarai == undefined) {
+          dto.komentarai = "";
+        }
+
+        ats.komentaras = dto.komentarai;
         ats.klausimas = dto.klausimas;
         ats.tipas = dto.tipas;
 
