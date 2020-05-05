@@ -21,6 +21,7 @@ app.get('/excelgenerate', function (req, res) {
   var workbook = new Excel.stream.xlsx.WorkbookWriter(options);
   var sheet = workbook.addWorksheet('IT Klausimynas');
   sheet.getCell('A1').value = "Įmonė:";
+  // sheet.getCell('B1').value = imonespavadinimas;
   sheet.getCell('C1').value = "Vartotojas:";
   sheet.getCell('A2').value = "Kategorija";
   sheet.getCell('B2').value = "Klausimas";
@@ -29,9 +30,13 @@ app.get('/excelgenerate', function (req, res) {
   sheet.getCell('E2').value = "Identifikuota rizika";
   sheet.getCell('F2').value = "Rekomendacija";
   sheet.getCell('G2').value = "Svarba";
-  sheet.getCell('G2').value = "Svarba";
 
-  Klausimynas.all(`Select * from klausimai`, [], (err, rows) => {
+  // Klausimynas.all(`Select * from klausimai`, [], (err, rows) => {
+  //   if (err) {
+  //     throw err;
+  //   }
+
+  Klausimynas.all(`Select * from klausimai as kl left join atsakymai as ats on kl.id=ats.klausimoid and ats.imonesid='${req.body['imonesid']}'`, [], (err, rows) => {
     if (err) {
       throw err;
     }
