@@ -46,7 +46,7 @@ app.get('/excelgenerate', function (req, res) {
       sheet.getCell('A' + index).value = row["kategorija"];
       sheet.getCell('B' + index).value = row["klausimas"];
       sheet.getCell('C' + index).value = row["atsakymas"];
-      sheet.getCell('D' + index).value = row["komentaras"];
+      sheet.getCell('D' + index).value = row["komentarai"];
       index = index + 1;
     })
 
