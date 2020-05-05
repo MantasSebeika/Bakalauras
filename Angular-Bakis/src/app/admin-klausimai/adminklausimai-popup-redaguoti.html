@@ -1,0 +1,15 @@
+<div mat-dialog-content>
+    <p>Redaguoti klausimą</p>
+    <mat-form-field>
+      <mat-label>Pakeisti kategoriją</mat-label>
+      <input matInput [(ngModel)]="klausimasredaguoti.kategorija">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Pakeisti klausimą</mat-label>
+      <input matInput [(ngModel)]="klausimasredaguoti.klausimas">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Atšaukti</button>
+    <button mat-button [mat-dialog-close]="klausimasredaguoti" cdkFocusInitial>Pakeisti</button>
+  </div>

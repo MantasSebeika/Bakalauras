@@ -1,0 +1,15 @@
+<div mat-dialog-content>
+    <p>Pridėti naują Klausimą</p>
+    <mat-form-field>
+      <mat-label>Kategorija</mat-label>
+      <input matInput [(ngModel)]="klausimasprideti.kategorija">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Klausimas</mat-label>
+      <input matInput [(ngModel)]="klausimasprideti.klausimas">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Atšaukti</button>
+    <button mat-button [mat-dialog-close]="klausimasprideti" cdkFocusInitial>Pridėti</button>
+  </div>

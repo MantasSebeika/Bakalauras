@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { KlausimasPrideti } from './adminklausimai-popup-naujas';
+import { KlausimaiRedaguoti } from './adminklausimai-popup-redaguoti';
+import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-admin-klausimai',
@@ -9,6 +13,53 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AdminKlausimaiComponent implements OnInit {
   
+  redaguotiklausima(klausimas: Atsakymas){
+  
+    const dialogRef = this.dialog.open(KlausimaiRedaguoti, {
+      width: '250px',
+      data: klausimas
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      var atnaujinti: Atsakymas=result;
+      const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+    this.client.post("http://localhost:8081/klausimai/update", `{"id":"${atnaujinti.klausimoid}", "kategorija":"${atnaujinti.kategorija}", "klausimas":"${atnaujinti.klausimas}"}`, { headers: headers }).subscribe(resp => {
+      if (resp) {
+this.ngOnInit();
+      }
+      else
+        alert("Neteisingi duomenys")
+          
+        
+    }
+    )
+    });
+  }
+
+
+  pridetiklausima(){
+  
+    const dialogRef = this.dialog.open(KlausimasPrideti, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      var naujas: Atsakymas=result;
+      const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+    this.client.post("http://localhost:8081/klausimai/new", `{"kategorija":"${naujas.kategorija}", "klausimas":"${naujas.klausimas}"}`, { headers: headers }).subscribe(resp => {
+      if (resp) {
+this.ngOnInit();
+      }
+      else
+        alert("Neteisingi duomenys")
+          
+        
+    }
+    )
+    });
+  }
+
+
   istrintiklausima(klausimoid: string) {
 
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
@@ -39,7 +90,7 @@ export class AdminKlausimaiComponent implements OnInit {
   }
   public kategorijos: Kategorija[];
 
-  constructor(private client: HttpClient, private cookies: CookieService) { }
+  constructor(private client: HttpClient, private cookies: CookieService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.kategorijos = new Array<Kategorija>();
@@ -90,6 +141,7 @@ export class Atsakymas {
   public komentaras: string;
   public klausimas: string;
   public tipas: string;
+  public kategorija: string;
 }
 
 export class Kategorija {

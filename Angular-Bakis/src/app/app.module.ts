@@ -28,7 +28,8 @@ import { DialogOverviewExampleDialog } from './vartotojai/popup';
 import { DialogOverviewExampleDialognew } from './vartotojai/popupnew';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { PrisijungimasAdminComponent } from './prisijungimas-admin/prisijungimas-admin.component';
-
+import { KlausimasPrideti } from './admin-klausimai/adminklausimai-popup-naujas';
+import { KlausimaiRedaguoti } from './admin-klausimai/adminklausimai-popup-redaguoti';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { PrisijungimasAdminComponent } from './prisijungimas-admin/prisijungimas
     DialogOverviewExampleDialog,
     DialogOverviewExampleDialognew,
     AdminHomeComponent,
-    PrisijungimasAdminComponent
+    PrisijungimasAdminComponent,
+    KlausimasPrideti,
+    KlausimaiRedaguoti
 
 
   ],
@@ -68,7 +71,9 @@ import { PrisijungimasAdminComponent } from './prisijungimas-admin/prisijungimas
 
   entryComponents: [
     DialogOverviewExampleDialog,
-    DialogOverviewExampleDialognew
+    DialogOverviewExampleDialognew,
+    KlausimasPrideti,
+    KlausimaiRedaguoti
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

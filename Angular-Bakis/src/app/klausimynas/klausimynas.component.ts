@@ -107,6 +107,7 @@ export class Atsakymas {
   public komentaras: string;
   public klausimas: string;
   public tipas: string;
+  // public kategorija: string;
 }
 
 export class Kategorija {
