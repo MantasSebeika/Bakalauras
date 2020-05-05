@@ -27,7 +27,7 @@ app.post ('/klausimai/delete', function (req, res){
     }
     
   });
-  res.send("Ištrinta");
+  res.send(true);
 })
 
 app.post ('/vartotojai/new', function (req, res){
@@ -77,6 +77,15 @@ app.post ('/vartotojai/delete', function (req, res){
 app.get ('/vartotojai', function (req, res){
 
   Klausimynas.all (`Select * from vartotojai`, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.send(rows);
+  });
+})
+
+app.post('/klausimaiadmin', function (res) {
+  Klausimynas.all(`Select * from klausimai`, [], (err, rows) => {
     if (err) {
       throw err;
     }

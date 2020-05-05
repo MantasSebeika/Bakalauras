@@ -14,7 +14,9 @@ export class AdminKlausimaiComponent implements OnInit {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post("http://localhost:8081/klausimai/delete", `{"id":"${klausimoid}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
-this.ngOnInit();
+
+        this.ngOnInit();
+        // this.client.post<boolean>
       }
       else
         alert("Neteisingi duomenys")
