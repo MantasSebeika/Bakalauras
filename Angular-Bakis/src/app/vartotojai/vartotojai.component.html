@@ -7,6 +7,7 @@
 </div>
 <div class="marginas" *ngFor="let imone of imonespavadinimas; index as i;">
     <h2> {{imone.imonespavadinimas}} </h2>
+    <button style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Atsisiųsti klausimyną</button>
     <mat-card>
         <div class="marginas">
 
@@ -18,7 +19,7 @@
                             <span>{{vartotojas.pastas}}</span>
                             <button mat-raised-button (click)="iskvietipopup(vartotojas)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Redaguoti</button>
                             <button (click)="istrinti(vartotojas.id)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Ištrinti</button>
-                    </div>
+                        </div>
 
                 </div>
 

@@ -10,18 +10,18 @@ app.use(cors());
 app.options('*', cors());
 
 
-app.get('/excelgenerate', function (req, res) {
+app.post('/excelgenerate', function (req, res) {
   const Excel = require('exceljs');
 
   var options = {
-    filename: './streamed-workbook.xlsx',
+    filename: `./IT_Klausimynas_${req.body['imonespavadinimas']}.xlsx`,
     useStyles: true,
     useSharedStrings: true
   };
   var workbook = new Excel.stream.xlsx.WorkbookWriter(options);
   var sheet = workbook.addWorksheet('IT Klausimynas');
   sheet.getCell('A1').value = "Įmonė:";
-  // sheet.getCell('B1').value = imonespavadinimas;
+  // sheet.getCell('B1').value = ${req.body['imonespavadinimas']};
   sheet.getCell('C1').value = "Vartotojas:";
   sheet.getCell('A2').value = "Kategorija";
   sheet.getCell('B2').value = "Klausimas";
@@ -31,17 +31,13 @@ app.get('/excelgenerate', function (req, res) {
   sheet.getCell('F2').value = "Rekomendacija";
   sheet.getCell('G2').value = "Svarba";
 
-  // Klausimynas.all(`Select * from klausimai`, [], (err, rows) => {
-  //   if (err) {
-  //     throw err;
-  //   }
 
   Klausimynas.all(`Select * from klausimai as kl left join atsakymai as ats on kl.id=ats.klausimoid and ats.imonesid='${req.body['imonesid']}'`, [], (err, rows) => {
     if (err) {
       throw err;
     }
     var index = 3;
-    
+
     rows.forEach(row => {
       sheet.getCell('A' + index).value = row["kategorija"];
       sheet.getCell('B' + index).value = row["klausimas"];
@@ -238,6 +234,17 @@ app.post('/prisijungtiadmin', function (req, res) {
 )
 
 app.post('/atsakymai', function (req, res) {
+
+
+  // Klausimynas.get(`Select imonespavadinimas from vartotojai where id='${req.body['vartotojoid']}'`, [], (err, rows) => {
+  //   if (err) {
+  //     throw err;
+  //   }
+  //   console.log(rows);
+  // }
+  // )
+  //  Klausimynas.all(`SELECT id from imones where imonespavadinimas="${item['imonespavadinimas']}" `)
+
   Klausimynas.run(`INSERT INTO atsakymai (klausimoid, imonesid, atsakymas, komentarai) 
                   VALUES ("${req.body['klausimoid']}", "${req.body['imonesid']}", "${req.body['atsakymas']}", "${req.body['komentarai']}")`, [], (err) => {
 
