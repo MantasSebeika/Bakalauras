@@ -1,16 +1,53 @@
-
 const csv = require('csvtojson')
-
 var express = require('express');
 var sqlClient = require('sqlite3');
 const guid = require('uuid');
-
 var bodyParser = require("body-parser");
 var app = express();
 app.use(bodyParser.json());
 var cors = require('cors');
 app.use(cors());
 app.options('*', cors());
+
+
+app.get('/excelgenerate', function (req, res){
+const Excel = require('exceljs');
+
+var options = {
+  filename: './streamed-workbook.xlsx',
+  useStyles: true,
+  useSharedStrings: true
+};
+var workbook = new Excel.stream.xlsx.WorkbookWriter(options);
+var sheet = workbook.addWorksheet('IT Klausimynas');
+sheet.getCell('A1').value="Įmonė:";
+sheet.getCell('C1').value="Vartotojas:";
+sheet.getCell('A2').value="Kategorija";
+sheet.getCell('B2').value="Klausimas";
+sheet.getCell('C2').value="Atsakymas";
+sheet.getCell('D2').value="Komentaras";
+sheet.getCell('E2').value="Identifikuota rizika";
+sheet.getCell('F2').value="Rekomendacija";
+sheet.getCell('G2').value="Svarba";
+
+
+Klausimynas.all(`Select * from klausimai`, [], (err, rows) => {
+  if (err) {
+    throw err;
+  }
+  rows.forEach(row =>{
+    // sheet.getCell('B3').value=row["klausimas"];
+console.log(row);
+  })
+});
+
+
+
+sheet.commit();
+workbook.commit();
+res.send(true);
+}
+)
 
 var Klausimynas = new sqlClient.Database('duomenubaze5');
 Klausimynas.run("CREATE TABLE IF NOT EXISTS administratoriai (id TEXT, pastas TEXT, slaptazodis TEXT)");
@@ -38,7 +75,7 @@ res.send(true);
 
 app.post ('/klausimai/new', function (req, res){
 
-  Klausimynas.run(`INSERT INTO klausimai (kategorija, klausimas) VALUES ("${req.body['kategorija']}" ,"${req.body['klausimas']}")`, [], (err) => {
+  Klausimynas.run(`INSERT INTO klausimai (id, kategorija, klausimas, tipas) VALUES ("${guid.v4()}", "${req.body['kategorija']}" ,"${req.body['klausimas']}", "random")`, [], (err) => {
     if (err) {
       throw err;
     }
@@ -61,7 +98,7 @@ app.post ('/klausimai/delete', function (req, res){
 
 app.post ('/vartotojai/new', function (req, res){
 
-  Klausimynas.run(`INSERT INTO vartotojai (imonespavadinimas, pastas, slaptazodis) VALUES ("${req.body['imonespavadinimas']}" ,"${req.body['pastas']}", "${req.body['slaptazodis']}")`, [], (err) => {
+  Klausimynas.run(`INSERT INTO vartotojai (id, imonespavadinimas, pastas, slaptazodis) VALUES ("${guid.v4()}", "${req.body['imonespavadinimas']}" ,"${req.body['pastas']}", "${req.body['slaptazodis']}")`, [], (err) => {
 
 if (err) {
 throw err;
