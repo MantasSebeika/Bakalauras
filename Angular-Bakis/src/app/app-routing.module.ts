@@ -16,7 +16,7 @@ const routes: Routes = [
 { path: 'kontaktai', component: KontaktaiComponent },
 { path: 'admin_klausimai', component: AdminKlausimaiComponent, canActivate: [RoleGuard]},
 { path: 'vartotojai', component: VartotojaiComponent, canActivate: [RoleGuard]},
-{ path: 'admin-home', component: AdminHomeComponent, canActivate: [RoleGuard]},
+{ path: 'admin_home', component: AdminHomeComponent, canActivate: [RoleGuard]},
 { path: 'prisijungimas', component: PrisijungimasComponent},
 { path: 'prisijungimas_admin', component: PrisijungimasAdminComponent},
 { path:"**", component: PradziaComponent}];

@@ -27,7 +27,7 @@ export class PrisijungimasAdminComponent implements OnInit {
       if (resp) {
         this.cookies.delete("loginas")
         this.cookies.set("loginasAdmin", this.email.email)
-        this.route.navigateByUrl("/admin-home")
+        this.route.navigateByUrl("/admin_home")
       }
       else
         alert("Neteisingi duomenys")

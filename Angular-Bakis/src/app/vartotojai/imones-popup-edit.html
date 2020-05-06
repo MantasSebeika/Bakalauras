@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+    <p>Redagavimas</p>
+    <mat-form-field>
+      <mat-label>Pakeisti įmonės pavadinimą</mat-label>
+      <input matInput [(ngModel)]="imoneredag.imonespavadinimas">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Atšaukti</button>
+    <button mat-button [mat-dialog-close]="imoneredag" cdkFocusInitial>Pakeisti</button>
+  </div>

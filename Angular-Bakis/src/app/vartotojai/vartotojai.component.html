@@ -3,23 +3,34 @@
     <p>
         Vartotojų sąrašas
     </p>
-    <button (click)="iskvietipopupnew()" style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Sukurti naują vartotoja</button>
+    <button (click)="iskvietipopupnew()" style="border-style: solid; border-radius: 15px; width: 200px"
+        mat-raised-button class="marginas">Sukurti naują vartotoja</button>
+        <button (click)="pridetiimone()" style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Pridėti naują imonę</button>
 </div>
-<div class="marginas" *ngFor="let imone of imonespavadinimas; index as i;">
-    <h2> {{imone.imonespavadinimas}} </h2>
-    <button style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Atsisiųsti klausimyną</button>
+<div class="marginas" *ngFor="let imone of imones; index as i;">
+    <div style="width: 50%; height: 100%;">
+        <h2> {{imone.imonespavadinimas}} </h2>
+        <button (click)="redaguotiimone(imone)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Redaguoti imonę</button>
+        <button (click)="istrintiimone(imone.id)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Ištrinti</button>
+        <button style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Atsisiųsti klausimyną</button>
+    </div>
     <mat-card>
         <div class="marginas">
 
             <mat-card *ngFor="let vartotojas of imone.vartotojai; index as in;">
 
-                <div style="height: 100%; width: 100%; display: flex; justify-content: space-between; align-items: center;">
+                <div
+                    style="height: 100%; width: 100%; display: flex; justify-content: space-between; align-items: center;">
 
                     <div style="width: 50%; height: 100%;">
-                            <span>{{vartotojas.pastas}}</span>
-                            <button mat-raised-button (click)="iskvietipopup(vartotojas)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Redaguoti</button>
-                            <button (click)="istrinti(vartotojas.id)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Ištrinti</button>
-                        </div>
+                        <span>{{vartotojas.pastas}}</span>
+                        <button mat-raised-button (click)="iskvietipopup(vartotojas)"
+                            style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button
+                            class="marginas">Redaguoti</button>
+                        <button (click)="istrinti(vartotojas.id)"
+                            style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button
+                            class="marginas">Ištrinti</button>
+                    </div>
 
                 </div>
 

@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+    <p>Pridėti naują įmonę</p>
+    <mat-form-field>
+      <mat-label>Įmonės pavadinimas</mat-label>
+      <input matInput [(ngModel)]="imoneprideti.imonespavadinimas">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Atšaukti</button>
+    <button mat-button [mat-dialog-close]="imoneprideti" cdkFocusInitial>Pridėti</button>
+  </div>

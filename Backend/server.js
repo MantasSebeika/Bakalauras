@@ -57,12 +57,54 @@ app.post('/excelgenerate', function (req, res) {
 }
 )
 
-var Klausimynas = new sqlClient.Database('duomenubaze6');
+var Klausimynas = new sqlClient.Database('duomenubaze7');
 Klausimynas.run("CREATE TABLE IF NOT EXISTS administratoriai (id TEXT, pastas TEXT, slaptazodis TEXT)");
-Klausimynas.run("CREATE TABLE IF NOT EXISTS vartotojai (id TEXT, imonespavadinimas TEXT, pastas TEXT, slaptazodis TEXT)");
+Klausimynas.run("CREATE TABLE IF NOT EXISTS vartotojai (id TEXT, imonesid TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS klausimai (id TEXT, klausimas TEXT, kategorija TEXT, tipas TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS atsakymai (klausimoid TEXT, imonesid TEXT, atsakymas TEXT, komentarai TEXT, Constraint Id_Atsakymai UNIQUE (klausimoid, imonesid))");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS imones (id TEXT, imonespavadinimas TEXT)");
+
+app.post('/imones/delete', function (req, res) {
+
+  Klausimynas.run(`DELETE from imones where id='${req.body['id']}'`, [], (err) => {
+    if (err) {
+      throw err;
+    }
+
+  });
+  res.send(true);
+})
+
+
+app.post('/imones/new', function (req, res) {
+
+  Klausimynas.run(`INSERT INTO imones (id, imonespavadinimas) VALUES ("${guid.v4()}", "${req.body['imonespavadinimas']}")`, [], (err) => {
+    if (err) {
+      throw err;
+    }
+
+  });
+  res.send(true);
+})
+
+
+app.post('/imones/update', function (req, res) {
+
+  Klausimynas.run(`UPDATE imones 
+  SET id="${req.body['imonesid']}", imonespavadinimas="${req.body['imonespavadinimas']}"
+  WHERE id="${req.body['imonesid']}"`, [], (err) => {
+
+    if (err) {
+      throw err;
+    }
+    res.send(true);
+  }
+
+  )
+}
+)
+
+
 
 app.post('/klausimai/update', function (req, res) {
 
@@ -106,7 +148,7 @@ app.post('/klausimai/delete', function (req, res) {
 
 app.post('/vartotojai/new', function (req, res) {
 
-  Klausimynas.run(`INSERT INTO vartotojai (id, imonespavadinimas, pastas, slaptazodis) VALUES ("${guid.v4()}", "${req.body['imonespavadinimas']}" ,"${req.body['pastas']}", "${req.body['slaptazodis']}")`, [], (err) => {
+  Klausimynas.run(`INSERT INTO vartotojai (id, imonesid, pastas, slaptazodis) VALUES ("${guid.v4()}", "${req.body['imonesid']}" ,"${req.body['pastas']}", "${req.body['slaptazodis']}")`, [], (err) => {
 
     if (err) {
       throw err;
@@ -146,6 +188,16 @@ app.post('/vartotojai/delete', function (req, res) {
 
   });
   res.send("Ištrinta");
+})
+
+app.get('/imones', function (req, res) {
+
+  Klausimynas.all(`Select * from imones`, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.send(rows);
+  });
 })
 
 app.get('/vartotojai', function (req, res) {

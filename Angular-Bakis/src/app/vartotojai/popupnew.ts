@@ -1,6 +1,6 @@
-import { MatDialogRef} from '@angular/material/dialog';
-import { Component } from '@angular/core';
-import { AtnaujintiVart } from './vartotojai.component';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { AtnaujintiVart, Imone } from './vartotojai.component';
 
 @Component({
     selector: 'app-vartotojaipopupnew',
@@ -8,9 +8,13 @@ import { AtnaujintiVart } from './vartotojai.component';
   })
   export class DialogOverviewExampleDialognew {
   public vartatprideti: AtnaujintiVart = new AtnaujintiVart();
+  public imones: Imone[];
+
     constructor(
-      public dialogRef: MatDialogRef<DialogOverviewExampleDialognew>,
-      ) { 
+      public dialogRef: MatDialogRef<DialogOverviewExampleDialognew>, 
+      @Inject(MAT_DIALOG_DATA) public data: Imone[]
+
+      ) { this.imones=data;
         
       }
   

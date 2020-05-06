@@ -30,6 +30,9 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { PrisijungimasAdminComponent } from './prisijungimas-admin/prisijungimas-admin.component';
 import { KlausimasPrideti } from './admin-klausimai/adminklausimai-popup-naujas';
 import { KlausimaiRedaguoti } from './admin-klausimai/adminklausimai-popup-redaguoti';
+import { ImonePrideti } from './vartotojai/imones-popup-new';
+import { ImoneRedaguoti } from './vartotojai/imones-popup-edit';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,9 @@ import { KlausimaiRedaguoti } from './admin-klausimai/adminklausimai-popup-redag
     AdminHomeComponent,
     PrisijungimasAdminComponent,
     KlausimasPrideti,
-    KlausimaiRedaguoti
+    KlausimaiRedaguoti,
+    ImonePrideti,
+    ImoneRedaguoti,
 
 
   ],
@@ -66,14 +71,17 @@ import { KlausimaiRedaguoti } from './admin-klausimai/adminklausimai-popup-redag
     MatFormFieldModule,
     MatIconModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
 
   entryComponents: [
     DialogOverviewExampleDialog,
     DialogOverviewExampleDialognew,
     KlausimasPrideti,
-    KlausimaiRedaguoti
+    KlausimaiRedaguoti,
+    ImonePrideti,
+    ImoneRedaguoti
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
