@@ -11,7 +11,7 @@
     <div style="width: 50%; height: 100%;">
         <h2> {{imone.imonespavadinimas}} </h2>
         <button (click)="redaguotiimone(imone)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Redaguoti imonę</button>
-        <button (click)="istrintiimone(imone.id)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Ištrinti</button>
+        <button (click)="istrintiimone(imone.imonesid)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Ištrinti</button>
         <button style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Atsisiųsti klausimyną</button>
     </div>
     <mat-card>
@@ -21,7 +21,7 @@
 
                 <div
                     style="height: 100%; width: 100%; display: flex; justify-content: space-between; align-items: center;">
-
+ 
                     <div style="width: 50%; height: 100%;">
                         <span>{{vartotojas.pastas}}</span>
                         <button mat-raised-button (click)="iskvietipopup(vartotojas)"

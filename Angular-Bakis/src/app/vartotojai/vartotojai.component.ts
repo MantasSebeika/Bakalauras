@@ -14,6 +14,24 @@ import { ImoneRedaguoti } from './imones-popup-edit';
 })
 export class VartotojaiComponent implements OnInit {
 
+
+//   eksportuoti(id: string) {
+
+//     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+//     this.client.post("http://localhost:8081/excelgenerate", `{"id":"${id}"}`, { headers: headers }).subscribe(resp => {
+//       if (resp) {
+// this.ngOnInit();
+//       }
+//       else
+//         alert("Neteisingi duomenys")
+          
+        
+//     }
+//     )
+// }
+
+
+
   redaguotiimone(imones: Imone){
   
     const dialogRef = this.dialog.open(ImoneRedaguoti, {
@@ -83,7 +101,7 @@ this.ngOnInit();
     dialogRef.afterClosed().subscribe(result => {
       var naujas: AtnaujintiVart=result;
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post("http://localhost:8081/vartotojai/new", `{"imonespavadinimas":"${naujas.imonesid}", "pastas":"${naujas.pastas}", "slaptazodis":"${naujas.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
+    this.client.post("http://localhost:8081/vartotojai/new", `{"imonesid":"${naujas.imonesid}", "pastas":"${naujas.pastas}", "slaptazodis":"${naujas.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
 this.ngOnInit();
       }
@@ -143,30 +161,31 @@ this.ngOnInit();
     this.imones = new Array<Imone>();
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.get<Imonedto[]>("http://localhost:8081/imones").subscribe(resp => {
-        
+    
     
       
     resp.forEach(dto => {
 
     var imone= new Imone();
-    imone.imonesid = dto.imonesid
+    imone.imonesid = dto.id
     imone.imonespavadinimas = dto.imonespavadinimas
-            this.imones.push(imone)
-    
+    imone.vartotojai=new Array<AtnaujintiVart>()
+    this.imones.push(imone)
     }
             )
 
             this.client.get<Vartotojaidto[]>("http://localhost:8081/vartotojai").subscribe(resp => {
         resp.forEach(dto => {
-  
+          
           var nauj = new AtnaujintiVart();
+          
           nauj.id = dto.id;
           nauj.pastas = dto.pastas
-          nauj.slaptazodis = dto.slaptazodis;
-         var imone =  this.imones.find(i => i.imonesid==dto.imonesid);
+          nauj.slaptazodis = dto.slaptazodis
+         var imone =  this.imones.find(i => i.imonesid==dto.imonesid)
     imone.vartotojai.push(nauj)
-    var imoneindex =  this.imones.findIndex(i => i.imonesid==dto.imonesid);
-    this.imones[imoneindex]=imone;
+    var imoneindex =  this.imones.findIndex(i => i.imonesid==dto.imonesid)
+    this.imones[imoneindex]=imone
         }
         )}
       )
@@ -175,35 +194,6 @@ this.ngOnInit();
           })
         }
       }
-    
-    
-    
-    
-    
-
-  //       if (this.imonespavadinimas.findIndex(imonespavadinimas => imonespavadinimas.imonespavadinimas == dto.imonespavadinimas) == -1) {
-  //         var vart = new Array<AtnaujintiVart>();
-  //         vart.push(nauj);
-
-  //         var atvar = new Imone();
-  //         atvar.imonesid = dto.imonesid;
-  //         atvar.imonespavadinimas = dto.imonespavadinimas;
-  //         atvar.vartotojai = vart;
-
-  //         this.imonespavadinimas.push(atvar);
-  //       } else {
-  //         var atvarIndex = this.imonespavadinimas.findIndex(imonespavadinimas => imonespavadinimas.imonespavadinimas == dto.imonespavadinimas);
-  //         var atvar = this.imonespavadinimas.find(imonespavadinimas => imonespavadinimas.imonespavadinimas == dto.imonespavadinimas);
-
-  //         atvar.vartotojai.push(nauj);
-
-  //         this.imonespavadinimas[atvarIndex] = atvar;
-
-  //       }
-
-  //     })
-  //   });
- 
 
 export class AtnaujintiVart {
   public imonesid: string;
@@ -227,6 +217,6 @@ export class Vartotojaidto {
 }
 
 export class Imonedto {
-  public imonesid: string;
+  public id: string;
   public imonespavadinimas: string;
 }

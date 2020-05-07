@@ -1,17 +1,13 @@
 <div mat-dialog-content>
     <p>Pridėti naują vartotoją</p>
-    <mat-form-field>
-      <h4>Basic mat-select</h4>
-      <mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Imonės</mat-label>
         <mat-select [(value)]="vartatprideti.imonesid">
-          <mat-option *ngFor="let imone of imones; index as in;" 
-            [value]="imone.imonesid">
+          <mat-option *ngFor="let imone of imones; let i = index" [value]="imone.imonesid">
             {{imone.imonespavadinimas}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </mat-form-field>
     <mat-form-field>
       <mat-label>El.paštas</mat-label>
       <input matInput [(ngModel)]="vartatprideti.pastas">

@@ -18,10 +18,18 @@ app.post('/excelgenerate', function (req, res) {
     useStyles: true,
     useSharedStrings: true
   };
+
+
+
   var workbook = new Excel.stream.xlsx.WorkbookWriter(options);
   var sheet = workbook.addWorksheet('IT Klausimynas');
   sheet.getCell('A1').value = "Įmonė:";
-  // sheet.getCell('B1').value = ${req.body['imonespavadinimas']};
+  Klausimynas.all(`Select imonespavadinimas from imones where id='${req.body['imonesid']}'`), [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    sheet.getCell('B1').value = rows[0];
+  }
   sheet.getCell('C1').value = "Vartotojas:";
   sheet.getCell('A2').value = "Kategorija";
   sheet.getCell('B2').value = "Klausimas";
@@ -32,7 +40,7 @@ app.post('/excelgenerate', function (req, res) {
   sheet.getCell('G2').value = "Svarba";
 
 
-  Klausimynas.all(`Select * from klausimai as kl left join atsakymai as ats on kl.id=ats.klausimoid and ats.imonesid='${req.body['imonesid']}'`, [], (err, rows) => {
+  Klausimynas.all(`Select * from klausimai as kl left join atsakymai as ats on kl.id=ats.klausimoid and ats.imonesid='${req.body['id']}'`, [], (err, rows) => {
     if (err) {
       throw err;
     }
@@ -42,6 +50,11 @@ app.post('/excelgenerate', function (req, res) {
       sheet.getCell('A' + index).value = row["kategorija"];
       sheet.getCell('B' + index).value = row["klausimas"];
       sheet.getCell('C' + index).value = row["atsakymas"];
+      if (row["atsakymas"] == "0") {
+        sheet.getCell('E' + index).value = "Identifikuota rizika";
+        sheet.getCell('F' + index).value = "Rekomendacija";
+        sheet.getCell('G' + index).value = "Svarba";
+      }
       sheet.getCell('D' + index).value = row["komentarai"];
       index = index + 1;
     })
@@ -51,13 +64,10 @@ app.post('/excelgenerate', function (req, res) {
     res.send(true);
   });
 
-
-
-
 }
 )
 
-var Klausimynas = new sqlClient.Database('duomenubaze7');
+var Klausimynas = new sqlClient.Database('duomenubaze10');
 Klausimynas.run("CREATE TABLE IF NOT EXISTS administratoriai (id TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS vartotojai (id TEXT, imonesid TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS klausimai (id TEXT, klausimas TEXT, kategorija TEXT, tipas TEXT)");
@@ -70,6 +80,7 @@ app.post('/imones/delete', function (req, res) {
     if (err) {
       throw err;
     }
+    res.send(row);
 
   });
   res.send(true);
@@ -91,8 +102,8 @@ app.post('/imones/new', function (req, res) {
 app.post('/imones/update', function (req, res) {
 
   Klausimynas.run(`UPDATE imones 
-  SET id="${req.body['imonesid']}", imonespavadinimas="${req.body['imonespavadinimas']}"
-  WHERE id="${req.body['imonesid']}"`, [], (err) => {
+  SET imonespavadinimas="${req.body['imonespavadinimas']}"
+  WHERE id="${req.body['id']}"`, [], (err) => {
 
     if (err) {
       throw err;
@@ -187,7 +198,7 @@ app.post('/vartotojai/delete', function (req, res) {
     }
 
   });
-  res.send("Ištrinta");
+  res.send(true);
 })
 
 app.get('/imones', function (req, res) {

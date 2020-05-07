@@ -45,7 +45,7 @@ public klausimai:Klausimas[];
   adminpradzia() {
     var adminsausianiukas = this.cookies.get("loginasAdmin")
         if (adminsausianiukas != "")
-        this.router.navigateByUrl("/admin-home")
+        this.router.navigateByUrl("/admin_home")
         
         else  
         
