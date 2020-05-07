@@ -23,7 +23,7 @@ export class AdminKlausimaiComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       var atnaujinti: Atsakymas=result;
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post("http://localhost:8081/klausimai/update", `{"id":"${atnaujinti.klausimoid}", "kategorija":"${atnaujinti.kategorija}", "klausimas":"${atnaujinti.klausimas}"}`, { headers: headers }).subscribe(resp => {
+    this.client.post("http://localhost:8081/klausimai/update", `{"id":"${atnaujinti.klausimoid}", "kategorija":"${atnaujinti.kategorija}", "klausimas":"${atnaujinti.klausimas}", "rekomendacijane":"${atnaujinti.rekomendacijane}", "rekomendacijataip":"${atnaujinti.rekomendacijataip}",  "identifikuotarizika":"${atnaujinti.identifikuotarizika}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
 this.ngOnInit();
       }
@@ -46,7 +46,7 @@ this.ngOnInit();
     dialogRef.afterClosed().subscribe(result => {
       var naujas: Atsakymas=result;
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post("http://localhost:8081/klausimai/new", `{"kategorija":"${naujas.kategorija}", "klausimas":"${naujas.klausimas}"}`, { headers: headers }).subscribe(resp => {
+    this.client.post("http://localhost:8081/klausimai/new", `{"kategorija":"${naujas.kategorija}", "klausimas":"${naujas.klausimas}", "rekomendacijane":"${naujas.rekomendacijane}", "rekomendacijataip":"${naujas.rekomendacijataip}",  "identifikuotarizika":"${naujas.identifikuotarizika}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
 this.ngOnInit();
       }
@@ -95,7 +95,7 @@ this.ngOnInit();
   ngOnInit(): void {
     this.kategorijos = new Array<Kategorija>();
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post<Klausimasdto[]>("http://localhost:8081/klausimai",`{"vartotojoid": "${this.cookies.get("loginas")}"}`, { headers: headers }).subscribe(resp => {
+    this.client.post<Klausimasdto[]>("http://localhost:8081/klausimaiadmin",`{"vartotojoid": "${this.cookies.get("loginas")}"}`, { headers: headers }).subscribe(resp => {
       resp.forEach(dto => {
 
         var ats = new Atsakymas();
@@ -142,6 +142,9 @@ export class Atsakymas {
   public klausimas: string;
   public tipas: string;
   public kategorija: string;
+  public rekomendacijane: string;
+  public rekomendacijataip: string;
+  public identifikuotarizika: string;
 }
 
 export class Kategorija {

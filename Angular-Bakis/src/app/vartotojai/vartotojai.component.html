@@ -12,7 +12,7 @@
         <h2> {{imone.imonespavadinimas}} </h2>
         <button (click)="redaguotiimone(imone)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Redaguoti imonę</button>
         <button (click)="istrintiimone(imone.imonesid)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Ištrinti</button>
-        <button style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Atsisiųsti klausimyną</button>
+        <button (click)="eksportuoti(imone.imonesid, imone.imonespavadinimas)" style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Atsisiųsti klausimyną</button>
     </div>
     <mat-card>
         <div class="marginas">

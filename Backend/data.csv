@@ -1,142 +1,142 @@
-﻿kategorija;klausimas
-Fizinė sauga - Praėjimo kontrolė;Ar naudojama praėjimo kontrolės sistema?
-Fizinė sauga - Tarnybinių stočių (serverių) patalpa - DC;Ar organizacijoje yra tarnybinių stočių patalpos?
-Fizinė sauga - Fizinis kompiuterių tinklas;Ar ribojama prieiga prie tinklo įrenginių?
-Fizinė sauga - Spausdinimo infrastruktūra;Ar darbuotojai, kurie dirba su asmens duomenimis, naudojasi tinkliniu spausdintuvu?
-Kompiuterinio tinklo inventorizacija - Bendri klausimai;Kokie tinklo įrangos gamintojai yra naudojami kompiuteriniame tinkle?
-Kompiuterinio tinklo inventorizacija - Bendri klausimai;Kaip užtikrinate, kad tinklo įrenginiai visada yra atnaujinti ir su naujaisiais pataisymais?
-Kompiuterinio tinklo inventorizacija - Bendri klausimai;Ar naudojamas 802.1x protokolas?
-Kompiuterinio tinklo inventorizacija - Bendri klausimai;Ar prieiga prie tinklo įrenginių administravimo konsolės yra pasiekiama tik iš vidinio tinklo?
-Kompiuterinio tinklo inventorizacija - Bendri klausimai;Ar pakeisti gamykliniai prisijungimo vardai ir slaptažodžiai? 
-Kompiuterinio tinklo inventorizacija - Bendri klausimai;Kokiu būdu yra užtikrinamas slaptažodžių keitimas?
-Kompiuterinio tinklo inventorizacija - Bendri klausimai;Ar atliekamas vidinių sistemų skanavimas?
-Kompiuterinio tinklo inventorizacija - WiFi tinklas;Ar naudojamas WiFi tinklas?
-Kompiuterinio tinklo inventorizacija - WiFi tinklas;Naudojamas gamintojas ir įranga
-Kompiuterinio tinklo inventorizacija - WiFi tinklas;Kokio tipo autentifikacija prie WiFi?
-Kompiuterinio tinklo inventorizacija - WiFi tinklas;Kokie šifravimo algoritmai naudojami apsaugant bevielę komunikaciją?
-Kompiuterinio tinklo inventorizacija - WiFi tinklas;Ar AP valdymui naudojamas centralizuotas valdymas (per kontrolerį ar pan.)?
-Kompiuterinio tinklo inventorizacija - WiFi tinklas;Ar guest WLAN atskiras?
-Kompiuterinio tinklo inventorizacija - WiFi tinklas;Kokia guest WLAN naudojama autentifikacija?
-Kompiuterinio tinklo inventorizacija - WiFi tinklas;Ar yra naudojami guest WLAN apribojimai, jeigu taip - kokie?
-Kompiuterinio tinklo inventorizacija - Virtualus privatus tinklas (VPN);Ar naudojamas virtualus privatus tinklas (VPN)?
-Kompiuterinio tinklo inventorizacija - Virtualus privatus tinklas (VPN);Ar suteikiama teisė jungtis iš išorės prie vidinio tinklo?
-Kompiuterinio tinklo inventorizacija - Virtualus privatus tinklas (VPN);Kas turi teisę jungtis iš išorės prie vidinio tinklo?
-Kompiuterinio tinklo inventorizacija - Virtualus privatus tinklas (VPN);Kokios technologijos naudojamos prisijungimui iš išorės?
-Kompiuterinio tinklo inventorizacija - Wide area network (WAN);Ar naudojamas WAN tinklas?
-Kompiuterinio tinklo inventorizacija - Wide area network (WAN);Kaip vartotojai / serveriai patenka į Internet - ar išėjimas yra centralizuotas, filtruojamas?
-Kompiuterinio tinklo inventorizacija - Demilitarizuota zona (DMZ);Ar naudojama DMZ zona?
-Kompiuterinio tinklo inventorizacija - Demilitarizuota zona (DMZ);Išvardinkite paslaugas el. priemonėmis, kurios yra teikiamos į išorę iš vidinio tinklo
-Kompiuterinio tinklo inventorizacija - Demilitarizuota zona (DMZ);Išvardinkite priemones, kuriomis naudojantis tiekiamos paslaugos į Internet
-Kompiuterinio tinklo inventorizacija - Demilitarizuota zona (DMZ);Ar atliekamas reguliarus (bent kas pusmetį) pažeidžiamumų / įsilaužimo skanavimas?
-Kompiuterinio tinklo inventorizacija - Demilitarizuota zona (DMZ);Pateikite visus IP adresus, į kuriuos jungiamasi iš išorės
-Kompiuterinio tinklo inventorizacija - Ugniasienė (firewall);Ar naudojama ugniasienė?
-Kompiuterinio tinklo inventorizacija - Ugniasienė (firewall);Ar reguliariai peržiūrima firewall taisyklės, jeigu taip - kokiu dažnumu?
-Kompiuterinio tinklo inventorizacija - Ugniasienė (firewall);Ar galima identifikuoti siunčiamus asmens duomenis?
-Kompiuterinio tinklo inventorizacija - Ugniasienė (firewall);Ar galima identifikuoti užkrėstus vidinius kompiuterius?
-Kompiuterinio tinklo inventorizacija - Ugniasienė (firewall);Ar yra IDS (Intrusion Detection System) funkcijos?
-Specializuota IT įranga ir sistemos - Video;Ar turite vaizdo stebėjimo sistemas?
-Specializuota IT įranga ir sistemos - Video;Kokios kameros naudojamos?
-Specializuota IT įranga ir sistemos - Video;Kamerų kiekis?
-Specializuota IT įranga ir sistemos - Video;Kur saugomi įrašai?
-Specializuota IT įranga ir sistemos - Video;Ar saugomi įrašai šifruojami?
-Specializuota IT įranga ir sistemos - Video;Kokį periodą yra saugomos video kopijos?
-Specializuota IT įranga ir sistemos - Video;Vaizdo stebėjimo kamerų laukas stebi: darbuotojus, klientus, automobilius, darbo vietą?
-Specializuota IT įranga ir sistemos - Video;Kas turi prieigą prie įrašų?
-Specializuota IT įranga ir sistemos - Video;Kaip užtikrinam prieiga prie įrašų?
-Specializuota IT įranga ir sistemos - Video;Ar yra nuotolinė prieiga?
-Specializuota IT įranga ir sistemos - Internet of things (IoT) bei GPS sistemos;Ar naudojate IoT įrenginius?
-Specializuota IT įranga ir sistemos - Internet of things (IoT) bei GPS sistemos;Kokius ir kokiais tikslais?
-Specializuota IT įranga ir sistemos - Internet of things (IoT) bei GPS sistemos;Ar naudojate GPS (vartotojo pozicijos nustatymo) sistemas bei įrangą?
-Specializuota IT įranga ir sistemos - Internet of things (IoT) bei GPS sistemos;Kokius ir kokiais tikslais, specializuota įranga ar mobilūs išmanieji tel.?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kompiuterizuotų darbo vietų skaičius
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Naudojamos operacinės sistemos kompiuteriuose
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kompiuterinių darbo vietų tipas (Įvardinti ir kiekius)
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar naudojama centralizuota kompiuterių valdymo sistema? Jei taip, kokia?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar yra neprijungtų vartotojų įrenginių prie centralizuotos valdymo sistemos? Kiek neprijungta ir kodėl?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar naudojama Group Policy? Jei taip, kam konkrečiai?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar naudojamos administratoriaus teisės vartotojų kompiuteriuose?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar yra priemonės, kurios riboja USB išorinių diskų jungimą prie kompiuterių? Jei taip, ar uždrausta 'auto-run galimybė'?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar KDV yra sukonfigūruota standartinė OS suteikiama ugniasienė?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kokia tvarka yra diegiama nauja programinė įranga?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar visa naudojama programinė įranga yra legali (nupirkta arba freeware)?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kokios naudojamos programinės įrangos atnaujinimų priežiūros ir diegimo priemonės? 
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar sukonfigūruotas reguliarus skanavimas?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar naudojama antivirusinė programinė įranga?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kokia antivirusinė naudojama?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar antivirusinės priemonės prižiūrimos centralizuotai?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kaip užtikrinama, kad antivirusinė atnaujinta (programinė įranga, virusų duomenų bazės)?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar naudojama standartinė konfigūracija, pvz., skanuojanti failus prieš juos atsidarant? Ar yra paruoštos specializuotos tvarkos?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kokios kitos saugumo priemonės naudojamos įrenginiuose?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kokios priemonės naudojamos apsisaugojimui nuo šifruojančių virusų?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar administratorius turi galimybę per nuotolį prisijungti prie vartotojo darbo aplinkos? Jei taip, ar vartotojas yra apie tai informuojamas, įspėjant apie galimą asmens duomenų atskleidimą?
-Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kaip yra pašalinami kompiuteriai, mobilieji įrenginiai, USB, kai jie nebenaudojami veikloje?
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar naudojama centralizuota vartotojų valdymo sistema (pvz. Active Directory)?
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Kokia centralizuota vartotojų valdymo sistema naudojama?
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar visi vartotojai prijungti prie AD sistemos?
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Kokia tvarka yra naudojama valdant vartotojus (naujų paskyrų sukūrimas, išėjusių darbuotojų paskyrų pašalinimas, jei darbuotojas keičia poziciją - teisių pakeitimas, ir t.t.)?
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar jungiantis prie kompiuterių yra reikalaujama suvesti slaptažodžius? 
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar naudojama multi-factor, bio autentifikacija?
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar yra slaptažodžių valdymo politika?
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Sudėtingumo faktoriaus patikrinimas?
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Kartojamumo faktoriaus patikrinimas?
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Periodinis keitimas?
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Lockout politika?
-Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar  kompiuteriai automatiškai užsirakina po nustatyto periodo?
-Vartotojų naudojami įrenginiai - SIEM (Security Incident and Event Monitoring) sistemos;Ar yra naudojama centralizuota infrastruktūros ir saugumo įvykių (angl. 'logging') rinkimo, analizės ir pranešimų sistema (SIEM)? 
-Vartotojų naudojami įrenginiai - SIEM (Security Incident and Event Monitoring) sistemos;Kiek laiko saugoma informacija?
-Vartotojų naudojami įrenginiai - SIEM (Security Incident and Event Monitoring) sistemos;Ar yra kaupiama informacija iš visų įrenginių, kada koks vartotojas prisijungė, nepavykę prisijungimai?
-Vartotojų naudojami įrenginiai - SIEM (Security Incident and Event Monitoring) sistemos;Jeigu taip, kiek laiko ir kur saugoma?
-Vartotojų naudojami įrenginiai - Nešiojami kompiuteriai;Ar leidžiama naudotis asmeniniais kompiuteriais darbe? (BYOD)
-Vartotojų naudojami įrenginiai - Nešiojami kompiuteriai;Kiek tokių kompiuterių yra % nuo bendro kompiuterių kiekio?
-Vartotojų naudojami įrenginiai - Nešiojami kompiuteriai;Ar leidžiama naudotis darbiniais kompiuteriais namie?
-Vartotojų naudojami įrenginiai - Nešiojami kompiuteriai;Ar nešiojamų kompiuterių diskai yra šifruojami?
-Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar naudojama centralizuota mob. įrenginių valdymo sistema? Jeigu taip, kokia?
-Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar kontroliuojama, kokia programinė įranga yra diegiama į telefonus? Jeigu taip, kokiomis priemonėmis?
-Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar atskiriami įmonės duomenys nuo asmeninių duomenų?
-Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar naudojamos kokios nors antiroot priemonės?
-Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar šifruojami mobilieji įrenginiai?
-Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar yra galimybė pašalinti duomenis nuotoliniu būdu iš pamesto įrenginio?
-Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar mobilieji įrenginiai yra atnaujinami automatiškai, kai gamintojas išleidžia atnaujinimą?
-Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar mobiliuose įrenginiuose naudojama antivirusinė sistema? Jeigu taip, kokia?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Bendra informacija;Kiek turite serverių (fizinių/virtualių)?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Bendra informacija;Naudojamos operacinės sistemos serveriuose
-Tarnybinės stotys (vietiniame DC ir debesyje) - Valdymas ir priežiūra;Ar visi serveriai prijungti prie AD sistemos?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Valdymas ir priežiūra;Ar serveriai valdomi centralizuotai?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Valdymas ir priežiūra;Kokiomis valdymo priemonėmis?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Valdymas ir priežiūra;Jei ne, kokie ir kiek neprijungti, dėl kokių priežasčių?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Valdymas ir priežiūra;Ar naudojamas serverių ir serverių tarnybų darbingumo monitoringas? Jei taip, koks?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Kaip užtikrinamas veiklos tęstinumas ir rezervinis kopijavimas? 
-Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Ar rezervinės kopijos šifruojamos? 
-Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Ar daromi duomenų atstatymo iš kopijų bandymai?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Kokiu periodiškumu bandoma atstatyti duomenis iš rezervinių kopijų?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Ar yra offsite backup? 
-Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Kokie vartotojai pasiekia rezervines kopijas?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Rezervines kopijas galima pasiekti personalizuota ar nepersonalizuota vartotojo paskyra?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Saugumas;Diskų/duomenų šifravimas?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Saugumas;Kokios antivirusinės priemonės naudojamos serveriuose?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Saugumas;Ar prie tarnybinių stočių jungiamasi paprastu vartotoju ir tik po to, esant poreikiui, imamos administravimo teisės?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Kokios technologijos naudojamos el. paštui?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Koks antivirusas naudojamas el. paštui?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Ar naudojami el. paštui antispam / antiphishing sprendimai?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Ar el. paštu yra siunčiama asmeninė informacija?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Ar ji šifruojama? Jei taip, kokiomis priemonėmis?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Ar ji klasifikuojama? Jei taip, kokiomis priemonėmis?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Kaip archyvuojami seni el. laiškai?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Web puslapis;Pateikite informaciją apie visas eksploatuojamas web svetaines (http nuoroda)
-Tarnybinės stotys (vietiniame DC ir debesyje) - Web puslapis;Kas prižiūri pateiktus tinklapius , taip pat kas administruoja ir hostina ? 
-Tarnybinės stotys (vietiniame DC ir debesyje) - Web puslapis;Ar yra atliekami vertinimai svetainės atsparumams DDOS atakoms? Jeigu taip - kokiomis priemonėmis ir kokiu periodiškumu?
-Tarnybinės stotys (vietiniame DC ir debesyje) - Duomenų bazės;Išvardinkite duomenų bazių sistemas, kurios yra naudojamos (su versijomis)
-Darbuotojai - Mokymai;Ar vykdomi IT saugumo mokymai įmonės darbuotojams, jeigu taip - kokiu periodiškumu, ką apima mokymai (bendros saugumo politikos, phising atakos, kita)?
-Darbuotojai - Mokymai;Ar yra atliktas socialinės inžinerijos (social engineering) testas?
-Darbuotojai - Išorinės organizacijos;Ar partneriai / tiekėjai / klientai jungiasi prie jūsų vidinių informacinių sistemų? Jei taip, kokiu būdu ?
-Darbuotojai - Išorinės organizacijos;Ar turi atskiras paskyras? 
-Darbuotojai - Išorinės organizacijos;Kokio lygio teisės suteikiamos (pvz., administratoriaus)?
-Darbuotojai - Išorinės organizacijos;Kaip tiekėjai yra kontroliuojami (ar sesijos yra įrašomos, fiksuojamas pradžios / pabaigos laikas)?
-Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar laikomi elektroniniai dokumentai (failai) tarnybinėse stotyse / failų serveriuose?
-Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar laikomi elektroniniai dokumentai (failai) KDV?
-Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar yra naudojama saugos politika failų sistemoje (file level security, ne share level security), siekiant apriboti vartotojų matomus ir pasiekiamus failus?
-Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Kaip dalinamasi failais su klientais / tiekėjais / partneriais?
-Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar yra sprendimas dideliems failams? 
-Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar saugykla šifruota?
-Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar užtikrinama, kad tik paskirti asmenys atsidarys?
-Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar užtikrinama duomenų pašalinimas, kai nebereikia?
+﻿kategorija;klausimas;rekomendacijane;rekomendacijataip;identifikuotarizika
+Fizinė sauga - Praėjimo kontrolė;Ar naudojama praėjimo kontrolės sistema?;Nėra;Nėra;Nėra
+Fizinė sauga - Tarnybinių stočių (serverių) patalpa - DC;Ar organizacijoje yra tarnybinių stočių patalpos?;Nėra;Nėra;Nėra
+Fizinė sauga - Fizinis kompiuterių tinklas;Ar ribojama prieiga prie tinklo įrenginių?;Nėra;Nėra;Nėra
+Fizinė sauga - Spausdinimo infrastruktūra;Ar darbuotojai, kurie dirba su asmens duomenimis, naudojasi tinkliniu spausdintuvu?;Nėra;Nėra;Nėra
+Kompiuterinio tinklo inventorizacija - Bendri klausimai;Kokie tinklo įrangos gamintojai yra naudojami kompiuteriniame tinkle?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Bendri klausimai;Kaip užtikrinate, kad tinklo įrenginiai visada yra atnaujinti ir su naujaisiais pataisymais?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Bendri klausimai;Ar naudojamas 802.1x protokolas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Bendri klausimai;Ar prieiga prie tinklo įrenginių administravimo konsolės yra pasiekiama tik iš vidinio tinklo?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Bendri klausimai;Ar pakeisti gamykliniai prisijungimo vardai ir slaptažodžiai? ;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Bendri klausimai;Kokiu būdu yra užtikrinamas slaptažodžių keitimas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Bendri klausimai;Ar atliekamas vidinių sistemų skanavimas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - WiFi tinklas;Ar naudojamas WiFi tinklas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - WiFi tinklas;Naudojamas gamintojas ir įranga;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - WiFi tinklas;Kokio tipo autentifikacija prie WiFi?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - WiFi tinklas;Kokie šifravimo algoritmai naudojami apsaugant bevielę komunikaciją?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - WiFi tinklas;Ar AP valdymui naudojamas centralizuotas valdymas (per kontrolerį ar pan.)?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - WiFi tinklas;Ar guest WLAN atskiras?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - WiFi tinklas;Kokia guest WLAN naudojama autentifikacija?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - WiFi tinklas;Ar yra naudojami guest WLAN apribojimai, jeigu taip - kokie?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Virtualus privatus tinklas (VPN);Ar naudojamas virtualus privatus tinklas (VPN)?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Virtualus privatus tinklas (VPN);Ar suteikiama teisė jungtis iš išorės prie vidinio tinklo?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Virtualus privatus tinklas (VPN);Kas turi teisę jungtis iš išorės prie vidinio tinklo?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Virtualus privatus tinklas (VPN);Kokios technologijos naudojamos prisijungimui iš išorės?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Wide area network (WAN);Ar naudojamas WAN tinklas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Wide area network (WAN);Kaip vartotojai / serveriai patenka į Internet - ar išėjimas yra centralizuotas, filtruojamas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Demilitarizuota zona (DMZ);Ar naudojama DMZ zona?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Demilitarizuota zona (DMZ);Išvardinkite paslaugas el. priemonėmis, kurios yra teikiamos į išorę iš vidinio tinklo;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Demilitarizuota zona (DMZ);Išvardinkite priemones, kuriomis naudojantis tiekiamos paslaugos į Internet;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Demilitarizuota zona (DMZ);Ar atliekamas reguliarus (bent kas pusmetį) pažeidžiamumų / įsilaužimo skanavimas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Demilitarizuota zona (DMZ);Pateikite visus IP adresus, į kuriuos jungiamasi iš išorės;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Ugniasienė (firewall);Ar naudojama ugniasienė?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Ugniasienė (firewall);Ar reguliariai peržiūrima firewall taisyklės, jeigu taip - kokiu dažnumu?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Ugniasienė (firewall);Ar galima identifikuoti siunčiamus asmens duomenis?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Ugniasienė (firewall);Ar galima identifikuoti užkrėstus vidinius kompiuterius?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Kompiuterinio tinklo inventorizacija - Ugniasienė (firewall);Ar yra IDS (Intrusion Detection System) funkcijos?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Video;Ar turite vaizdo stebėjimo sistemas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Video;Kokios kameros naudojamos?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Video;Kamerų kiekis?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Video;Kur saugomi įrašai?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Video;Ar saugomi įrašai šifruojami?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Video;Kokį periodą yra saugomos video kopijos?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Video;Vaizdo stebėjimo kamerų laukas stebi: darbuotojus, klientus, automobilius, darbo vietą?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Video;Kas turi prieigą prie įrašų?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Video;Kaip užtikrinam prieiga prie įrašų?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Video;Ar yra nuotolinė prieiga?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Internet of things (IoT) bei GPS sistemos;Ar naudojate IoT įrenginius?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Internet of things (IoT) bei GPS sistemos;Kokius ir kokiais tikslais?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Internet of things (IoT) bei GPS sistemos;Ar naudojate GPS (vartotojo pozicijos nustatymo) sistemas bei įrangą?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Specializuota IT įranga ir sistemos - Internet of things (IoT) bei GPS sistemos;Kokius ir kokiais tikslais, specializuota įranga ar mobilūs išmanieji tel.?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kompiuterizuotų darbo vietų skaičius;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Naudojamos operacinės sistemos kompiuteriuose;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kompiuterinių darbo vietų tipas (Įvardinti ir kiekius);rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar naudojama centralizuota kompiuterių valdymo sistema? Jei taip, kokia?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar yra neprijungtų vartotojų įrenginių prie centralizuotos valdymo sistemos? Kiek neprijungta ir kodėl?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar naudojama Group Policy? Jei taip, kam konkrečiai?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar naudojamos administratoriaus teisės vartotojų kompiuteriuose?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar yra priemonės, kurios riboja USB išorinių diskų jungimą prie kompiuterių? Jei taip, ar uždrausta 'auto-run galimybė'?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar KDV yra sukonfigūruota standartinė OS suteikiama ugniasienė?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kokia tvarka yra diegiama nauja programinė įranga?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar visa naudojama programinė įranga yra legali (nupirkta arba freeware)?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kokios naudojamos programinės įrangos atnaujinimų priežiūros ir diegimo priemonės? ;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar sukonfigūruotas reguliarus skanavimas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar naudojama antivirusinė programinė įranga?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kokia antivirusinė naudojama?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar antivirusinės priemonės prižiūrimos centralizuotai?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kaip užtikrinama, kad antivirusinė atnaujinta (programinė įranga, virusų duomenų bazės)?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar naudojama standartinė konfigūracija, pvz., skanuojanti failus prieš juos atsidarant? Ar yra paruoštos specializuotos tvarkos?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kokios kitos saugumo priemonės naudojamos įrenginiuose?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kokios priemonės naudojamos apsisaugojimui nuo šifruojančių virusų?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Ar administratorius turi galimybę per nuotolį prisijungti prie vartotojo darbo aplinkos? Jei taip, ar vartotojas yra apie tai informuojamas, įspėjant apie galimą asmens duomenų atskleidimą?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Kompiuterinės darbo vietos;Kaip yra pašalinami kompiuteriai, mobilieji įrenginiai, USB, kai jie nebenaudojami veikloje?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar naudojama centralizuota vartotojų valdymo sistema (pvz. Active Directory)?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Kokia centralizuota vartotojų valdymo sistema naudojama?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar visi vartotojai prijungti prie AD sistemos?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Kokia tvarka yra naudojama valdant vartotojus (naujų paskyrų sukūrimas, išėjusių darbuotojų paskyrų pašalinimas, jei darbuotojas keičia poziciją - teisių pakeitimas, ir t.t.)?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar jungiantis prie kompiuterių yra reikalaujama suvesti slaptažodžius? ;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar naudojama multi-factor, bio autentifikacija?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar yra slaptažodžių valdymo politika?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Sudėtingumo faktoriaus patikrinimas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Kartojamumo faktoriaus patikrinimas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Periodinis keitimas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Lockout politika?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Vartotojų paskyrų valdymas;Ar  kompiuteriai automatiškai užsirakina po nustatyto periodo?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - SIEM (Security Incident and Event Monitoring) sistemos;Ar yra naudojama centralizuota infrastruktūros ir saugumo įvykių (angl. 'logging') rinkimo, analizės ir pranešimų sistema (SIEM)? ;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - SIEM (Security Incident and Event Monitoring) sistemos;Kiek laiko saugoma informacija?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - SIEM (Security Incident and Event Monitoring) sistemos;Ar yra kaupiama informacija iš visų įrenginių, kada koks vartotojas prisijungė, nepavykę prisijungimai?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - SIEM (Security Incident and Event Monitoring) sistemos;Jeigu taip, kiek laiko ir kur saugoma?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Nešiojami kompiuteriai;Ar leidžiama naudotis asmeniniais kompiuteriais darbe? (BYOD);rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Nešiojami kompiuteriai;Kiek tokių kompiuterių yra % nuo bendro kompiuterių kiekio?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Nešiojami kompiuteriai;Ar leidžiama naudotis darbiniais kompiuteriais namie?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Nešiojami kompiuteriai;Ar nešiojamų kompiuterių diskai yra šifruojami?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar naudojama centralizuota mob. įrenginių valdymo sistema? Jeigu taip, kokia?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar kontroliuojama, kokia programinė įranga yra diegiama į telefonus? Jeigu taip, kokiomis priemonėmis?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar atskiriami įmonės duomenys nuo asmeninių duomenų?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar naudojamos kokios nors antiroot priemonės?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar šifruojami mobilieji įrenginiai?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar yra galimybė pašalinti duomenis nuotoliniu būdu iš pamesto įrenginio?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar mobilieji įrenginiai yra atnaujinami automatiškai, kai gamintojas išleidžia atnaujinimą?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Vartotojų naudojami įrenginiai - Mobilieji įrenginiai;Ar mobiliuose įrenginiuose naudojama antivirusinė sistema? Jeigu taip, kokia?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Bendra informacija;Kiek turite serverių (fizinių/virtualių)?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Bendra informacija;Naudojamos operacinės sistemos serveriuose;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Valdymas ir priežiūra;Ar visi serveriai prijungti prie AD sistemos?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Valdymas ir priežiūra;Ar serveriai valdomi centralizuotai?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Valdymas ir priežiūra;Kokiomis valdymo priemonėmis?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Valdymas ir priežiūra;Jei ne, kokie ir kiek neprijungti, dėl kokių priežasčių?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Valdymas ir priežiūra;Ar naudojamas serverių ir serverių tarnybų darbingumo monitoringas? Jei taip, koks?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Kaip užtikrinamas veiklos tęstinumas ir rezervinis kopijavimas? ;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Ar rezervinės kopijos šifruojamos? ;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Ar daromi duomenų atstatymo iš kopijų bandymai?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Kokiu periodiškumu bandoma atstatyti duomenis iš rezervinių kopijų?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Ar yra offsite backup? ;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Kokie vartotojai pasiekia rezervines kopijas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Rezervinis kopijavimas;Rezervines kopijas galima pasiekti personalizuota ar nepersonalizuota vartotojo paskyra?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Saugumas;Diskų/duomenų šifravimas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Saugumas;Kokios antivirusinės priemonės naudojamos serveriuose?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Saugumas;Ar prie tarnybinių stočių jungiamasi paprastu vartotoju ir tik po to, esant poreikiui, imamos administravimo teisės?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Kokios technologijos naudojamos el. paštui?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Koks antivirusas naudojamas el. paštui?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Ar naudojami el. paštui antispam / antiphishing sprendimai?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Ar el. paštu yra siunčiama asmeninė informacija?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Ar ji šifruojama? Jei taip, kokiomis priemonėmis?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Ar ji klasifikuojama? Jei taip, kokiomis priemonėmis?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Elektroninis paštas;Kaip archyvuojami seni el. laiškai?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Web puslapis;Pateikite informaciją apie visas eksploatuojamas web svetaines (http nuoroda);rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Web puslapis;Kas prižiūri pateiktus tinklapius , taip pat kas administruoja ir hostina ? ;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Web puslapis;Ar yra atliekami vertinimai svetainės atsparumams DDOS atakoms? Jeigu taip - kokiomis priemonėmis ir kokiu periodiškumu?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Tarnybinės stotys (vietiniame DC ir debesyje) - Duomenų bazės;Išvardinkite duomenų bazių sistemas, kurios yra naudojamos (su versijomis);rekomendacijane;rekomendacijataip;identifikuotarizika
+Darbuotojai - Mokymai;Ar vykdomi IT saugumo mokymai įmonės darbuotojams, jeigu taip - kokiu periodiškumu, ką apima mokymai (bendros saugumo politikos, phising atakos, kita)?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Darbuotojai - Mokymai;Ar yra atliktas socialinės inžinerijos (social engineering) testas?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Darbuotojai - Išorinės organizacijos;Ar partneriai / tiekėjai / klientai jungiasi prie jūsų vidinių informacinių sistemų? Jei taip, kokiu būdu ?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Darbuotojai - Išorinės organizacijos;Ar turi atskiras paskyras? ;rekomendacijane;rekomendacijataip;identifikuotarizika
+Darbuotojai - Išorinės organizacijos;Kokio lygio teisės suteikiamos (pvz., administratoriaus)?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Darbuotojai - Išorinės organizacijos;Kaip tiekėjai yra kontroliuojami (ar sesijos yra įrašomos, fiksuojamas pradžios / pabaigos laikas)?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar laikomi elektroniniai dokumentai (failai) tarnybinėse stotyse / failų serveriuose?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar laikomi elektroniniai dokumentai (failai) KDV?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar yra naudojama saugos politika failų sistemoje (file level security, ne share level security), siekiant apriboti vartotojų matomus ir pasiekiamus failus?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Kaip dalinamasi failais su klientais / tiekėjais / partneriais?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar yra sprendimas dideliems failams? ;rekomendacijane;rekomendacijataip;identifikuotarizika
+Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar saugykla šifruota?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar užtikrinama, kad tik paskirti asmenys atsidarys?;rekomendacijane;rekomendacijataip;identifikuotarizika
+Dokumentai ir keitimasis jais - Elektroniniai dokumentai;Ar užtikrinama duomenų pašalinimas, kai nebereikia?;rekomendacijane;rekomendacijataip;identifikuotarizika

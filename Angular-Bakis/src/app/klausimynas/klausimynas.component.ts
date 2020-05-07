@@ -20,7 +20,7 @@ export class KlausimynasComponent implements OnInit {
 
 
           const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-          this.client.post<boolean>("http://localhost:8081/atsakymai", `{"klausimoid": "${klausimas.klausimoid}", "vartotojoid":"${klausimas.vartotojoid}", "atsakymas":"${klausimas.atsakymas}", "komentarai": "${klausimas.komentaras}"}`, { headers: headers }).subscribe(resp => {
+          this.client.post<boolean>("http://localhost:8081/atsakymai", `{"klausimoid": "${klausimas.klausimoid}", "imonesid":"${this.cookies.get("imonesid")}", "atsakymas":"${klausimas.atsakymas}", "komentarai": "${klausimas.komentaras}"}`, { headers: headers }).subscribe(resp => {
             if (resp) {
             }
             else
@@ -69,7 +69,7 @@ export class KlausimynasComponent implements OnInit {
   ngOnInit(): void {
     this.kategorijos = new Array<Kategorija>();
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post<Klausimasdto[]>("http://localhost:8081/klausimai",`{"vartotojoid": "${this.cookies.get("loginas")}"}`, { headers: headers }).subscribe(resp => {
+    this.client.post<Klausimasdto[]>("http://localhost:8081/klausimai",`{"imonesid": "${this.cookies.get("imonesid")}"}`, { headers: headers }).subscribe(resp => {
       resp.forEach(dto => {
 
         var ats = new Atsakymas();

@@ -15,20 +15,20 @@ import { ImoneRedaguoti } from './imones-popup-edit';
 export class VartotojaiComponent implements OnInit {
 
 
-//   eksportuoti(id: string) {
+  eksportuoti(id: string, imonespavadinimas: string) {
 
-//     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-//     this.client.post("http://localhost:8081/excelgenerate", `{"id":"${id}"}`, { headers: headers }).subscribe(resp => {
-//       if (resp) {
-// this.ngOnInit();
-//       }
-//       else
-//         alert("Neteisingi duomenys")
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+    this.client.post("http://localhost:8081/excelgenerate", `{"imonesid":"${id}","imonespavadinimas":"${imonespavadinimas}" }`, { headers: headers }).subscribe(resp => {
+      if (resp) {
+this.ngOnInit();
+      }
+      else
+        alert("Neteisingi duomenys")
           
         
-//     }
-//     )
-// }
+    }
+    )
+}
 
 
 

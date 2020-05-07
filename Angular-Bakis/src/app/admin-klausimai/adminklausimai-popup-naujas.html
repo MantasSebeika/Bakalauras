@@ -8,6 +8,18 @@
       <mat-label>Klausimas</mat-label>
       <input matInput [(ngModel)]="klausimasprideti.klausimas">
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Rekomendacija neatitinka</mat-label>
+      <input matInput [(ngModel)]="klausimasprideti.rekomendacijane">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Rekomendacija atitinka</mat-label>
+      <input matInput [(ngModel)]="klausimasprideti.rekomendacijataip">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Identifikuota rizika</mat-label>
+      <input matInput [(ngModel)]="klausimasprideti.identifikuotarizika">
+    </mat-form-field>
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Atšaukti</button>

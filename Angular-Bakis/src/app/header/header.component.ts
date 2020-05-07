@@ -28,6 +28,7 @@ public klausimai:Klausimas[];
   atsijungti() {
     this.cookies.delete("loginas")
     this.cookies.delete("loginasAdmin")
+    this.cookies.delete("imonesid")
   }
 
   adminklausimynas() {

@@ -21,10 +21,11 @@ export class PrisijungimasComponent implements OnInit {
   }
   prisijungti() {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post<boolean>("http://localhost:8081/prisijungti", `{"pastas": "${this.email.email}", "slaptazodis":"${this.slaptazodis.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
-      if (resp) {
+    this.client.post("http://localhost:8081/prisijungti", `{"pastas": "${this.email.email}", "slaptazodis":"${this.slaptazodis.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
+      if (resp["imonesid"]!="") {
         this.cookies.delete ("loginasAdmin")
         this.cookies.set("loginas", this.email.email)
+        this.cookies.set("imonesid", resp["imonesid"])
         this.route.navigateByUrl("/klausimynas")
       }
       else
