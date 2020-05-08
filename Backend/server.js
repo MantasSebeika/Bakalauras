@@ -105,9 +105,9 @@ app.post('/excelgenerate', function (req, res) {
 
 
 
-var Klausimynas = new sqlClient.Database('duomenubaze11');
+var Klausimynas = new sqlClient.Database('duomenubaze13');
 Klausimynas.run("CREATE TABLE IF NOT EXISTS administratoriai (id TEXT, pastas TEXT, slaptazodis TEXT)");
-Klausimynas.run("CREATE TABLE IF NOT EXISTS vartotojai (id TEXT, imonesid TEXT, pastas TEXT, slaptazodis TEXT)");
+Klausimynas.run("CREATE TABLE IF NOT EXISTS vartotojai (id TEXT, imonesid TEXT, pastas TEXT, slaptazodis TEXT, statusas TEXT, vardas TEXT, pareigos TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS klausimai (id TEXT, klausimas TEXT, kategorija TEXT, tipas TEXT, rekomendacijane TEXT, rekomendacijataip TEXT, identifikuotarizika TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS atsakymai (klausimoid TEXT, imonesid TEXT, atsakymas TEXT, komentarai TEXT, Constraint Id_Atsakymai UNIQUE (klausimoid, imonesid))");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS imones (id TEXT, imonespavadinimas TEXT)");
@@ -197,7 +197,7 @@ app.post('/klausimai/delete', function (req, res) {
 
 app.post('/vartotojai/new', function (req, res) {
 
-  Klausimynas.run(`INSERT INTO vartotojai (id, imonesid, pastas, slaptazodis) VALUES ("${guid.v4()}", "${req.body['imonesid']}" ,"${req.body['pastas']}", "${req.body['slaptazodis']}")`, [], (err) => {
+  Klausimynas.run(`INSERT INTO vartotojai (id, imonesid, pastas, slaptazodis, statusas, vardas, pareigos) VALUES ("${guid.v4()}", "${req.body['imonesid']}", "${req.body['pastas']}", "${req.body['slaptazodis']}", "${req.body['statusas']}", "${req.body['vardas']}", "${req.body['pareigos']}")`, [], (err) => {
 
     if (err) {
       throw err;
@@ -213,7 +213,7 @@ app.post('/vartotojai/new', function (req, res) {
 app.post('/vartotojai/update', function (req, res) {
 
   Klausimynas.run(`UPDATE vartotojai 
-  SET pastas="${req.body['pastas']}", slaptazodis="${req.body['slaptazodis']}"
+  SET pastas="${req.body['pastas']}", slaptazodis="${req.body['slaptazodis']}", statusas="${req.body['statusas']}", vardas="${req.body['vardas']}", pareigos="${req.body['pareigos']}"
   WHERE id="${req.body['id']}"`, [], (err) => {
 
     if (err) {
@@ -225,7 +225,6 @@ app.post('/vartotojai/update', function (req, res) {
   )
 }
 )
-
 
 
 app.post('/vartotojai/delete', function (req, res) {
@@ -286,14 +285,14 @@ app.get('/dataimport', function (req, res) {
   res.send("Klausimai import")
 })
 
-app.get('/vartotojaiimport', function (req, res) {
-  const converter = csv({ delimiter: ";" }).fromFile('./vartotojai.csv').then((json) => {
-    json.forEach(item => {
-      Klausimynas.run(`INSERT INTO vartotojai VALUES("${guid.v4()}", "${item['imonespavadinimas']}", "${item['pastas']}", "${item['slaptazodis']}")`);
-    });
-  })
-  res.send("Vartotojai import")
-})
+// app.get('/vartotojaiimport', function (req, res) {
+//   const converter = csv({ delimiter: ";" }).fromFile('./vartotojai.csv').then((json) => {
+//     json.forEach(item => {
+//       Klausimynas.run(`INSERT INTO vartotojai VALUES("${guid.v4()}", "${item['imonespavadinimas']}", "${item['pastas']}", "${item['slaptazodis']}")`);
+//     });
+//   })
+//   res.send("Vartotojai import")
+// })
 
 app.get('/administratoriaiimport', function (req, res) {
   const converter = csv({ delimiter: ";" }).fromFile('./administratoriai.csv').then((json) => {
@@ -305,14 +304,14 @@ app.get('/administratoriaiimport', function (req, res) {
 })
 
 app.post('/prisijungti', function (req, res) {
-  Klausimynas.all(`SELECT imonesid from vartotojai where pastas="${req.body['pastas']}" and slaptazodis="${req.body['slaptazodis']}"`, [], (err, rows) => {
+  Klausimynas.all(`SELECT imonesid, statusas from vartotojai where pastas="${req.body['pastas']}" and slaptazodis="${req.body['slaptazodis']}"`, [], (err, rows) => {
     if (err) {
       throw err;
     }
     if (rows.length == 0) {
       res.send("");
     } else
-    
+    console.log(rows);
       res.send(rows[0]);
     
   }

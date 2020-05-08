@@ -101,7 +101,7 @@ this.ngOnInit();
     dialogRef.afterClosed().subscribe(result => {
       var naujas: AtnaujintiVart=result;
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post("http://localhost:8081/vartotojai/new", `{"imonesid":"${naujas.imonesid}", "pastas":"${naujas.pastas}", "slaptazodis":"${naujas.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
+    this.client.post("http://localhost:8081/vartotojai/new", `{"imonesid":"${naujas.imonesid}", "pastas":"${naujas.pastas}", "slaptazodis":"${naujas.slaptazodis}", "statusas":"${naujas.statusas}", "vardas":"${naujas.vardas}", "pareigos":"${naujas.pareigos}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
 this.ngOnInit();
       }
@@ -124,7 +124,7 @@ iskvietipopup(vartotojas: AtnaujintiVart){
     dialogRef.afterClosed().subscribe(result => {
       var atnaujinti: AtnaujintiVart=result;
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post("http://localhost:8081/vartotojai/update", `{"id":"${atnaujinti.id}", "pastas":"${atnaujinti.pastas}", "slaptazodis":"${atnaujinti.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
+    this.client.post("http://localhost:8081/vartotojai/update", `{"id":"${atnaujinti.id}", "pastas":"${atnaujinti.pastas}", "slaptazodis":"${atnaujinti.slaptazodis}", "statusas":"${atnaujinti.statusas}", "vardas":"${atnaujinti.vardas}", "pareigos":"${atnaujinti.pareigos}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
 this.ngOnInit();
       }
@@ -182,6 +182,9 @@ this.ngOnInit();
           nauj.id = dto.id;
           nauj.pastas = dto.pastas
           nauj.slaptazodis = dto.slaptazodis
+          nauj.statusas = dto.statusas
+          nauj.vardas = dto.vardas
+          nauj.pareigos = dto.pareigos
          var imone =  this.imones.find(i => i.imonesid==dto.imonesid)
     imone.vartotojai.push(nauj)
     var imoneindex =  this.imones.findIndex(i => i.imonesid==dto.imonesid)
@@ -200,6 +203,9 @@ export class AtnaujintiVart {
   public id: string;
   public pastas: string;
   public slaptazodis: string;
+  public statusas: boolean;
+  public vardas: string;
+  public pareigos: string;
 }
 
 export class Imone {
@@ -213,6 +219,9 @@ export class Vartotojaidto {
   public id: string;
   public pastas: string;
   public slaptazodis: string;
+  public statusas: boolean;
+  public vardas: string;
+  public pareigos: string;
 
 }
 

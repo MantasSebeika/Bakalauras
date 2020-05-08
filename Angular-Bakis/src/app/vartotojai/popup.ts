@@ -12,9 +12,6 @@ import { AtnaujintiVart } from './vartotojai.component';
       public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
       @Inject(MAT_DIALOG_DATA) public nauj: AtnaujintiVart) {
        this.vartatnaujinti=nauj;
-  
-  
-        
       }
   
     onNoClick(): void {

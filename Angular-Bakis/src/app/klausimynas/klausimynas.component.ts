@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-import { Klausimas } from '../header/header.component';
 
 @Component({
   selector: 'app-klausimynas',
   templateUrl: './klausimynas.component.html',
   styleUrls: ['./klausimynas.component.scss']
 })
+
+
 export class KlausimynasComponent implements OnInit {
+  
+  // laikas =Date.now();
+  
   saugoti() {
+       
     this.kategorijos.forEach(kategorija => {
       kategorija.klausimai.forEach(klausimas => {
-
-
-
 
         if (klausimas.atsakymas != undefined) {
 
@@ -42,6 +44,7 @@ export class KlausimynasComponent implements OnInit {
     var klausIndex = kat.klausimai.findIndex(Klausimas => Klausimas.klausimoid == id);
 
     if (kat.klausimai[klausIndex].atsakymas == reiksme) {
+      
       return true;
     }
     else {
@@ -115,6 +118,7 @@ export class Atsakymas {
   public komentaras: string;
   public klausimas: string;
   public tipas: string;
+  public laikas: Date;
   // public kategorija: string;
 }
 

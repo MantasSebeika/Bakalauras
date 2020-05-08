@@ -3,17 +3,20 @@
     <p>
        Įmonių ir Vartotojų sąrašas
     </p>
+</div>
+<div style="display: flex; justify-content: center; width: 100%; align-items: center;">
     <button (click)="iskvietipopupnew()" style="border-style: solid; border-radius: 15px; width: 200px"
         mat-raised-button class="marginas">Sukurti naują vartotoja</button>
         <button (click)="pridetiimone()" style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Pridėti naują imonę</button>
-</div>
-<div class="marginas" *ngFor="let imone of imones; index as i;">
-    <div style="width: 100%; height: 100%;">
-        <h2> {{imone.imonespavadinimas}} 
+    </div>
+<div class="marginas" *ngFor="let imone of imones; index as i; ">
+    <div style="width: 100%; height: 100%; align-items: center; display: flex;">
+        <h2 style="display: flex; justify-content: flex-start; width: 30%; align-items: center;"> {{imone.imonespavadinimas}} </h2>
+          <div  style="display: flex; justify-content: flex-end; width: 70%; font-size: large; align-items: center;">
         <button (click)="redaguotiimone(imone)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Redaguoti imonę</button>
         <button (click)="istrintiimone(imone.imonesid)" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Ištrinti</button>
         <button (click)="eksportuoti(imone.imonesid, imone.imonespavadinimas)" style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button class="marginas">Atsisiųsti klausimyną</button>
-    </h2>
+    </div>
     </div>
     <mat-card>
         <div class="marginas">
@@ -23,14 +26,34 @@
                 <div
                     style="height: 100%; width: 100%; display: flex; justify-content: space-between; align-items: center;">
  
-                    <div style="width: 50%; height: 100%;">
-                        <span>{{vartotojas.pastas}}</span>
-                        <button mat-raised-button (click)="iskvietipopup(vartotojas)"
+                    <div style="display: flex; justify-content: space-between; width: 100%; font-size: large; align-items: center;" >
+                        <p>Vardas: 
+                            <span>{{vartotojas.vardas}}</span>
+                        </p>
+                            <p>Pareigos: 
+                            <span>{{vartotojas.pareigos}}</span>
+                        </p>
+                        <p>
+                            El.paštas: 
+                            <span>{{vartotojas.pastas}}</span>
+                        </p>
+                        <p>
+                            Statusas: 
+                            <span>{{vartotojas.statusas}}</span>
+                        </p>
+                       <div style="display: flex; justify-content: flex-end; width: 50%; font-size: large; align-items: center;">
+                        <p>
+                            <button mat-raised-button (click)="iskvietipopup(vartotojas)"
                             style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button
                             class="marginas">Redaguoti vartotoją</button>
+                        </p>
+                        <p>
                         <button (click)="istrinti(vartotojas.id)"
                             style="border-style: solid; border-radius: 15px; width: 200px" mat-raised-button
                             class="marginas">Ištrinti vartotoją</button>
+                        </p>
+                    </div>
+                        
                     </div>
 
                 </div>

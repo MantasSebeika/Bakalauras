@@ -16,6 +16,15 @@
       <mat-label>Slaptažodis</mat-label>
       <input matInput [(ngModel)]="vartatprideti.slaptazodis">
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Vardas</mat-label>
+      <input matInput [(ngModel)]="vartatprideti.vardas">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Pareigos</mat-label>
+      <input matInput [(ngModel)]="vartatprideti.pareigos">
+    </mat-form-field>
+    <mat-slide-toggle [(ngModel)]="vartatprideti.statusas">Aktyvus</mat-slide-toggle>
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Atšaukti</button>

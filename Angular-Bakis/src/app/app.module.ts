@@ -33,6 +33,8 @@ import { KlausimaiRedaguoti } from './admin-klausimai/adminklausimai-popup-redag
 import { ImonePrideti } from './vartotojai/imones-popup-new';
 import { ImoneRedaguoti } from './vartotojai/imones-popup-edit';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     FormsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
   ],
 
   entryComponents: [
