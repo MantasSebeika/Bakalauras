@@ -3,8 +3,9 @@
     <p>
         IT Klausimynas
     </p>
-    <button (click)="saugoti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Pateikti</button>
 </div>
+    
+
 <div style="font-size: medium">
     <p>Klausimynas yra pildomas pasirenkant viena iš 6 galimų reikšmių:
         0 - Netaikoma
@@ -17,6 +18,11 @@
         aprašyti kaip sprendimas yra įgyvendintas arba kodėl neįgyvendintas. Kuo detaliau bus pakomentuos klausimynas,
         tuo detalesnės bus klausimyno išvados ir rekomendacijos.
     </p>
+</div>
+<div style="display: flex; justify-content: flex-end; width: 100%; align-items: center;">
+    <button (click)="saugoti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Išsaugoti</button>
+    <button (click)="saugoti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Pateikti</button>
+
 </div>
 <div class="marginas" *ngFor="let kategorija of kategorijos; index as i;">
     <h2> {{kategorija.kategorija}} </h2>
@@ -56,3 +62,9 @@
     </mat-card>
     <mat-divider></mat-divider>
 </div>
+<div style="display: flex; justify-content: flex-end; height: 50px; width: 100%; align-items: center;">
+    <button (click)="saugoti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Išsaugoti</button>
+    <button (click)="saugoti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Pateikti</button>
+
+</div>
+<div style= "height: 50px;"></div>
