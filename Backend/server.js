@@ -8,13 +8,17 @@ app.use(bodyParser.json());
 var cors = require('cors');
 app.use(cors());
 app.options('*', cors());
+var path = require ('path');
 
+app.get('/excel/:imonesid/:imonespavadinimas', function (req, res, next) {
+  filepath=path.join(__dirname,`./IT_Klausimynas_${req.params['imonespavadinimas']}.xlsx`)
+  res.download(filepath);
 
-
-app.post('/excelgenerate', function (req, res) {
+})
+app.get('/excelgenerate/:imonesid/:imonespavadinimas', function (req, res, next) {
   const Excel = require('exceljs');
   var options = {
-    filename: `./IT_Klausimynas_${req.body['imonespavadinimas']}.xlsx`,
+    filename: `./IT_Klausimynas_${req.params['imonespavadinimas']}.xlsx`,
     useStyles: true,
     useSharedStrings: true
   };
@@ -35,7 +39,7 @@ app.post('/excelgenerate', function (req, res) {
   sheet.getCell('G2').value = "Svarba";
 
 
-  Klausimynas.all(`Select * from klausimai as kl left join atsakymai as ats on kl.id=ats.klausimoid and ats.imonesid='${req.body['id']}'`, [], (err, rows) => {
+  Klausimynas.all(`Select * from klausimai as kl left join atsakymai as ats on kl.id=ats.klausimoid and ats.imonesid='${req.params['imonesid']}'`, [], (err, rows) => {
     if (err) {
       throw err;
     }
@@ -83,21 +87,9 @@ app.post('/excelgenerate', function (req, res) {
        }
       index = index + 1;
     })
-
     sheet.commit();
     workbook.commit();
     res.send(true);
-
-    // app.get('/download', (req, res) => {
- 
-    //   res.setHeader('Content-Type', 'application/vnd.openxmlformats');
-    //   res.setHeader("Content-Disposition", "attachment; filename=" + 
-    //   "Report.xlsx");
-    //   return workbook.xlsx.write(res)
-    //   .then(function() {
-    //         res.end();
-    //   });
-    // });
   });
 
 }

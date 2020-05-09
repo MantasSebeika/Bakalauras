@@ -35,6 +35,7 @@ import { ImoneRedaguoti } from './vartotojai/imones-popup-edit';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FileService } from './vartotojai/file.service';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     ImonePrideti,
     ImoneRedaguoti
   ],
-  providers: [CookieService],
+  providers: [CookieService, FileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

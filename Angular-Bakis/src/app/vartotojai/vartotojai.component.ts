@@ -6,6 +6,7 @@ import { DialogOverviewExampleDialog } from './popup';
 import { DialogOverviewExampleDialognew } from './popupnew';
 import { ImonePrideti } from './imones-popup-new';
 import { ImoneRedaguoti } from './imones-popup-edit';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vartotojai',
@@ -14,21 +15,36 @@ import { ImoneRedaguoti } from './imones-popup-edit';
 })
 export class VartotojaiComponent implements OnInit {
 
-
+ 
   eksportuoti(id: string, imonespavadinimas: string) {
-
-    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
-    this.client.post("http://localhost:8081/excelgenerate", `{"imonesid":"${id}","imonespavadinimas":"${imonespavadinimas}" }`, { headers: headers }).subscribe(resp => {
-      if (resp) {
-this.ngOnInit();
-      }
-      else
-        alert("Neteisingi duomenys")
-          
-        
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8').set('Accept', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    this.client.get("http://localhost:8081/excelgenerate/"+id+"/"+imonespavadinimas.replace(' ','_')).subscribe((resp) => {
+      this.router.navigate([]).then(result => {  window.open("http://localhost:8081/excel/"+id+"/"+imonespavadinimas.replace(' ','_'), '_blank'); });   
+    }, err => {
+     console.log(err.message)
+      
+     
     }
     )
 }
+//   eksportuoti(id: string, imonespavadinimas: string) {
+//     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8').set('Accept', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+//     this.client.post("http://localhost:8081/excelgenerate", `{"imonesid":"${id}","imonespavadinimas":"${imonespavadinimas}"}`, { responseType: 'blob' as 'json',headers:headers }).subscribe((response: any) => {
+//       let dataType = response.type;
+//       let binaryData = [];
+//       binaryData.push(response);
+//     const blob = new Blob(binaryData, {type: dataType})
+//       const url= window.URL.createObjectURL(blob);
+//       window.open(url);
+  
+        
+//     }, err => {
+//      console.log(err.message)
+      
+     
+//     }
+//     )
+// }
 
 
 
@@ -155,7 +171,7 @@ this.ngOnInit();
 
   public imones: Imone[];
 
-  constructor(private client: HttpClient, private cookies: CookieService, public dialog: MatDialog) { }
+  constructor(private client: HttpClient, private cookies: CookieService, public dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.imones = new Array<Imone>();
