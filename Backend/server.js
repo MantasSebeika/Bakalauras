@@ -110,7 +110,6 @@ app.post('/imones/delete', function (req, res) {
     if (err) {
       throw err;
     }
-    // res.send(row);
 
   });
   res.send(true);
