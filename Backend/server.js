@@ -26,16 +26,16 @@ app.get('/excelgenerate/:imonesid/:imonespavadinimas', function (req, res, next)
 
 
   var workbook = new Excel.stream.xlsx.WorkbookWriter(options);
-  var sheet = workbook.addWorksheet('IT Klausimynas');
+  var sheet = workbook.addWorksheet('IT Klausimynas', {properties:{defaultColWidth:30}});
+ 
   sheet.getCell('A1').value = "Įmonė:";
-  sheet.getCell('B1').value = req.body['imonespavadinimas'];
-  sheet.getCell('C1').value = "Vartotojas:";
+  sheet.getCell('B1').value = req.params['imonespavadinimas'];
   sheet.getCell('A2').value = "Kategorija";
   sheet.getCell('B2').value = "Klausimas";
   sheet.getCell('C2').value = "Atsakymas";
   sheet.getCell('D2').value = "Komentaras";
-  sheet.getCell('E2').value = "Identifikuota rizika";
-  sheet.getCell('F2').value = "Rekomendacija";
+  sheet.getCell('E2').value = "Rekomendacija";
+  sheet.getCell('F2').value = "Identifikuota rizika";
   sheet.getCell('G2').value = "Svarba";
 
 
@@ -50,43 +50,68 @@ app.get('/excelgenerate/:imonesid/:imonespavadinimas', function (req, res, next)
       sheet.getCell('B' + index).value = row["klausimas"];
       sheet.getCell('C' + index).value = row["atsakymas"];
       sheet.getCell('D' + index).value = row["komentarai"];
+      sheet.getCell('A' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+      sheet.getCell('B' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+      sheet.getCell('C' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'center' };
+      sheet.getCell('D' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
       if (row["atsakymas"] == "0") {
         sheet.getCell('E' + index).value = "Netaikoma";
         sheet.getCell('F' + index).value = "Netaikoma";
         sheet.getCell('G' + index).value = "Informacija";
+        sheet.getCell('E' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+        sheet.getCell('F' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+        sheet.getCell('G' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'center' };
       }
        else if(row["atsakymas"] == "1")
        {
        sheet.getCell('E' + index).value = row["rekomendacijane"];
        sheet.getCell('F' + index).value = row["identifikuotarizika"];
        sheet.getCell('G' + index).value = "Aukšta";
+       sheet.getCell('E' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+       sheet.getCell('F' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+       sheet.getCell('G' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'center' };
        }
        else if(row["atsakymas"] == "2")
        {
        sheet.getCell('E' + index).value = row["rekomendacijane"];
        sheet.getCell('F' + index).value = row["identifikuotarizika"];
        sheet.getCell('G' + index).value = "Aukšta";
+       sheet.getCell('E' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+       sheet.getCell('F' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+       sheet.getCell('G' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'center' };
        }
        else if(row["atsakymas"] == "3")
        {
        sheet.getCell('E' + index).value = row["rekomendacijane"];
        sheet.getCell('F' + index).value = row["identifikuotarizika"];
        sheet.getCell('G' + index).value = "Vidutinė";
+       sheet.getCell('E' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+       sheet.getCell('F' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+       sheet.getCell('G' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'center' };
        }
        else if(row["atsakymas"] == "4")
        {
        sheet.getCell('E' + index).value = row["rekomendacijataip"];
        sheet.getCell('F' + index).value = row["identifikuotarizika"];
        sheet.getCell('G' + index).value = "Vidutinė";
+       sheet.getCell('E' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+       sheet.getCell('F' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+       sheet.getCell('G' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'center' };
        }
        else if(row["atsakymas"] == "5")
        {
        sheet.getCell('E' + index).value = row["rekomendacijataip"];
        sheet.getCell('F' + index).value = row["identifikuotarizika"];
        sheet.getCell('G' + index).value = "Žema";
+       sheet.getCell('E' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+       sheet.getCell('F' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'left' };
+       sheet.getCell('G' + index).alignment = { wrapText: true, vertical: 'middle', horizontal: 'center' };
        }
       index = index + 1;
     })
+    sheet.views = [
+      {x: 1, y: 1, width: 10000, height: 20000}
+    ];
     sheet.commit();
     workbook.commit();
     res.send(true);
@@ -97,7 +122,7 @@ app.get('/excelgenerate/:imonesid/:imonespavadinimas', function (req, res, next)
 
 
 
-var Klausimynas = new sqlClient.Database('duomenubaze13');
+var Klausimynas = new sqlClient.Database('duomenubaze15');
 Klausimynas.run("CREATE TABLE IF NOT EXISTS administratoriai (id TEXT, pastas TEXT, slaptazodis TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS vartotojai (id TEXT, imonesid TEXT, pastas TEXT, slaptazodis TEXT, statusas TEXT, vardas TEXT, pareigos TEXT)");
 Klausimynas.run("CREATE TABLE IF NOT EXISTS klausimai (id TEXT, klausimas TEXT, kategorija TEXT, tipas TEXT, rekomendacijane TEXT, rekomendacijataip TEXT, identifikuotarizika TEXT)");
@@ -383,7 +408,18 @@ app.post('/dev2', function (req, res) {
 
   }
   )
-
+})
+  app.post('/dev3', function (req, res) {
+    Klausimynas.run(req.body["query"], [], (err ) => {
+      if (err) {
+        throw err;
+      } else
+        res.send(true);
+  
+    }
+    )
+  
+ 
 
 
 
