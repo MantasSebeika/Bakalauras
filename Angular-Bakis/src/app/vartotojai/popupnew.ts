@@ -19,7 +19,7 @@ import { AtnaujintiVart, Imone } from './vartotojai.component';
       }
   
     onNoClick(): void {
-      alert(this.vartatprideti.imonesid)
+      // alert(this.vartatprideti.imonesid)
       this.dialogRef.close();
     }
   
