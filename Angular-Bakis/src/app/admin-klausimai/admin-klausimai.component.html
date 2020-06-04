@@ -12,6 +12,7 @@
     <p>Šiame lange galite patogiai atlikti visas CRUD funkcijas klausimams
     </p>
 </div>
+<mat-spinner *ngIf="kraunasi"></mat-spinner>
 <div class="marginas" *ngFor="let kategorija of kategorijos; index as i;">
     <h2> {{kategorija.kategorija}} </h2>
     <mat-card>

@@ -27,7 +27,7 @@
 </div>
 <div style="display: flex; justify-content: flex-end; width: 100%; align-items: center;">
     <button (click)="saugoti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Išsaugoti</button>
-    <button (click)="saugoti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Pateikti</button>
+    <!-- <button (click)="saugoti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Pateikti</button> -->
 
 </div>
 <mat-spinner *ngIf="kraunasi"></mat-spinner>
@@ -58,7 +58,7 @@
                     <div style="width: 35%; height: 100px;">
                         <mat-form-field style="width: 100%; height: 100px;"  class="example-full-width">
                             <mat-label style="width: 100%; height: 100px;">Komentaras</mat-label>
-                            <textarea style="width: 100%; height: 60px;" [(ngModel)]="klausimas.komentaras" matInput></textarea>
+                            <textarea  maxlength="10000" style="width: 100%; height: 60px;" [(ngModel)]="klausimas.komentaras" matInput></textarea>
                         </mat-form-field>
                     </div>
                 </div>

@@ -7,10 +7,12 @@
             {{imone.imonespavadinimas}}
           </mat-option>
         </mat-select>
+        <mat-hint *ngIf="neraimones" style="color: red;">Pridėkite vartotoją prie įmonės</mat-hint>
       </mat-form-field>
     <mat-form-field>
       <mat-label>El.paštas</mat-label>
       <input minlength="5" maxlength="60" matInput [(ngModel)]="vartatprideti.pastas">
+      <mat-hint *ngIf="!elpastasTeisingas" style="color: red;">Įveskite teisingą el. pašto adresą</mat-hint>
       <mat-error>Paštas turi sudaryti nuo 5 iki 60 simbolių</mat-error>
     </mat-form-field>
     <mat-form-field>
@@ -32,5 +34,5 @@
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Atšaukti</button>
-    <button mat-button [mat-dialog-close]="vartatprideti" cdkFocusInitial>Pridėti</button>
+    <button mat-button (click)="prideti()" cdkFocusInitial>Pridėti</button>
   </div>

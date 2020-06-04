@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class VartotojaiComponent implements OnInit {
 
+  
  
   eksportuoti(id: string, imonespavadinimas: string) {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8').set('Accept', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')

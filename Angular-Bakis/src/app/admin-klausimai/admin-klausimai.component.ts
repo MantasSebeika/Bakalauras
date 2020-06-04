@@ -13,6 +13,8 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class AdminKlausimaiComponent implements OnInit {
   
+  public kraunasi:boolean=false;
+
   redaguotiklausima(klausimas: Atsakymas){
   
     const dialogRef = this.dialog.open(KlausimaiRedaguoti, {
@@ -95,6 +97,7 @@ this.ngOnInit();
   constructor(private client: HttpClient, private cookies: CookieService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.kraunasi=true;
     this.kategorijos = new Array<Kategorija>();
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post<Klausimasdto[]>("http://localhost:8081/klausimaiadmin",`{"vartotojoid": "${this.cookies.get("loginas")}"}`, { headers: headers }).subscribe(resp => {
@@ -132,6 +135,7 @@ this.ngOnInit();
 
         }
       })
+      this.kraunasi=false;
     });
   }
 
