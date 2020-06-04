@@ -4,7 +4,6 @@
         BDAR Klausimynas
     </p>
 </div>
-    
 
 <div  class="marginas" style="display: flex; justify-content: flex-end; width: 90%; align-items: center; font-size: large;">
     <p>Klausimynas yra pildomas pasirenkant viena iš 6 galimų reikšmių:
@@ -31,7 +30,8 @@
     <button (click)="saugoti()" style="border-style: solid; border-radius: 15px; width: 150px" mat-raised-button class="marginas">Pateikti</button>
 
 </div>
-<div class="marginas" *ngFor="let kategorija of kategorijos; index as i;">
+<mat-spinner *ngIf="kraunasi"></mat-spinner>
+<div   class="marginas" *ngFor="let kategorija of kategorijos; index as i;">
     <h2> {{kategorija.kategorija}} </h2>
     <mat-card>
         <div class="marginas">

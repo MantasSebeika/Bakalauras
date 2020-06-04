@@ -10,19 +10,23 @@
       </mat-form-field>
     <mat-form-field>
       <mat-label>El.paštas</mat-label>
-      <input matInput [(ngModel)]="vartatprideti.pastas">
+      <input minlength="5" maxlength="60" matInput [(ngModel)]="vartatprideti.pastas">
+      <mat-error>Paštas turi sudaryti nuo 5 iki 60 simbolių</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Slaptažodis</mat-label>
-      <input matInput [(ngModel)]="vartatprideti.slaptazodis">
+      <input minlength="5" maxlength="60" matInput [(ngModel)]="vartatprideti.slaptazodis">
+      <mat-error>Slaptažodis turi sudaryti nuo 5 iki 60 simbolių</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Vardas</mat-label>
-      <input matInput [(ngModel)]="vartatprideti.vardas">
+      <input  minlength="2" maxlength="30" matInput [(ngModel)]="vartatprideti.vardas">
+      <mat-error>Vardas turi sudaryti nuo 2 iki 30 simbolių</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Pareigos</mat-label>
-      <input matInput [(ngModel)]="vartatprideti.pareigos">
+      <input minlength="2" maxlength="30" matInput [(ngModel)]="vartatprideti.pareigos">
+      <mat-error>Pareigos turi sudaryti nuo 2 iki 30 simbolių</mat-error>
     </mat-form-field>
     <mat-slide-toggle [(ngModel)]="vartatprideti.statusas">Aktyvus</mat-slide-toggle>
   </div>

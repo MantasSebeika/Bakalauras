@@ -2,7 +2,8 @@
     <p>Pridėti naują įmonę</p>
     <mat-form-field>
       <mat-label>Įmonės pavadinimas</mat-label>
-      <input matInput [(ngModel)]="imoneprideti.imonespavadinimas">
+      <input minlength="2" maxlength="30" matInput [(ngModel)]="imoneprideti.imonespavadinimas">
+      <mat-error>Įmonės pavadinimas turi sudaryti nuo 2 iki 30 simbolių</mat-error>
     </mat-form-field>
   </div>
   <div mat-dialog-actions>

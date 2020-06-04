@@ -6,12 +6,13 @@
      <div class="example-container" style="background-color: white; padding: 20px; border-style: solid; border-radius: 15px">
          <mat-form-field appearance="fill" style="padding-right: 40px;">
            <mat-label>Įrašyti El.paštą</mat-label>
-           <input matInput placeholder="pat@example.com" [(ngModel)]="email.email">
-           <mat-error *ngIf="email.invalid()">erroras</mat-error>
+           <input matInput placeholder="pat@example.com" minlength="5" maxlength="60" type="email" [(ngModel)]="email.email">
+           <mat-error *ngIf="email.invalid()">Paštas turi sudaryti nuo 5 iki 60 simbolių</mat-error>
          </mat-form-field>
          <mat-form-field appearance="fill" style="padding-right: 40px;">
              <mat-label>Įrašyti slaptažodį</mat-label>
-             <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="slaptazodis.slaptazodis">
+             <input matInput [type]="hide ? 'password' : 'text'" minlength="5" maxlength="60" [(ngModel)]="slaptazodis.slaptazodis">
+             <mat-error *ngIf="email.invalid()">Slaptažodis turi sudaryti nuo 4 iki 60 simbolių</mat-error>
              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
              </button>

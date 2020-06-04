@@ -11,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class KlausimynasComponent implements OnInit {
   
-  // laikas =Date.now();
+  public kraunasi:boolean=false;
   
   saugoti() {
        
@@ -70,10 +70,12 @@ export class KlausimynasComponent implements OnInit {
   constructor(private client: HttpClient, private cookies: CookieService) { }
 
   ngOnInit(): void {
+    this.kraunasi=true;
     this.kategorijos = new Array<Kategorija>();
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post<Klausimasdto[]>("http://localhost:8081/klausimai",`{"imonesid": "${this.cookies.get("imonesid")}"}`, { headers: headers }).subscribe(resp => {
-      resp.forEach(dto => {
+     
+    resp.forEach(dto => {
 
         var ats = new Atsakymas();
         ats.klausimoid = dto.id;
@@ -107,6 +109,7 @@ export class KlausimynasComponent implements OnInit {
 
         }
       })
+      this.kraunasi=false;
     });
   }
 

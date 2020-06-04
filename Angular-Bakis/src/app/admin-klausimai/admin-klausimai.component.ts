@@ -25,6 +25,7 @@ export class AdminKlausimaiComponent implements OnInit {
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post("http://localhost:8081/klausimai/update", `{"id":"${atnaujinti.klausimoid}", "kategorija":"${atnaujinti.kategorija}", "klausimas":"${atnaujinti.klausimas}", "rekomendacijane":"${atnaujinti.rekomendacijane}", "rekomendacijataip":"${atnaujinti.rekomendacijataip}",  "identifikuotarizika":"${atnaujinti.identifikuotarizika}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
+        alert("Duomenys pakeisti")
 this.ngOnInit();
       }
       else
@@ -48,6 +49,7 @@ this.ngOnInit();
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post("http://localhost:8081/klausimai/new", `{"kategorija":"${naujas.kategorija}", "klausimas":"${naujas.klausimas}", "rekomendacijane":"${naujas.rekomendacijane}", "rekomendacijataip":"${naujas.rekomendacijataip}",  "identifikuotarizika":"${naujas.identifikuotarizika}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
+        alert("Klausimas pridėtas")
 this.ngOnInit();
       }
       else
@@ -65,7 +67,7 @@ this.ngOnInit();
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post("http://localhost:8081/klausimai/delete", `{"id":"${klausimoid}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
-
+        alert("Klausimas ištrintas")
         this.ngOnInit();
         // this.client.post<boolean>
       }

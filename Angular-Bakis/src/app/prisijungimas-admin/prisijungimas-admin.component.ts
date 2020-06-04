@@ -34,6 +34,8 @@ export class PrisijungimasAdminComponent implements OnInit {
     })
   }
   }
+
+
 export class Email {
   public email: string;
   invalid() {
@@ -47,3 +49,6 @@ export class Slaptazodis {
 
   }
 }
+
+
+

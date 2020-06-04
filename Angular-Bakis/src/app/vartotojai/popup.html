@@ -2,22 +2,25 @@
   <p>Redagavimas</p>
   <mat-form-field>
     <mat-label>Pakeisti pašta</mat-label>
-    <input matInput [(ngModel)]="vartatnaujinti.pastas">
+    <input minlength="5" maxlength="60" matInput [(ngModel)]="vartatnaujinti.pastas">
+    <mat-error>Paštas turi sudaryti nuo 5 iki 60 simbolių</mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Pakeisti slaptažodį</mat-label>
-    <input matInput [(ngModel)]="vartatnaujinti.slaptazodis">
+    <input minlength="5" maxlength="60" matInput [(ngModel)]="vartatnaujinti.slaptazodis">
+    <mat-error>Slaptažodis turi sudaryti nuo 5 iki 60 simbolių</mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Pakeisti vardą</mat-label>
-    <input matInput [(ngModel)]="vartatnaujinti.vardas">
+    <input minlength="2" maxlength="30" matInput [(ngModel)]="vartatnaujinti.vardas">
+    <mat-error>Vardas turi sudaryti nuo 2 iki 30 simbolių</mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Pakeisti pareigas</mat-label>
-    <input matInput [(ngModel)]="vartatnaujinti.pareigos">
+    <input minlength="2" maxlength="30" matInput [(ngModel)]="vartatnaujinti.pareigos">
+    <mat-error>Pareigos turi sudaryti nuo 2 iki 30 simbolių</mat-error>
   </mat-form-field>
     <mat-slide-toggle [(ngModel)]="vartatnaujinti.statusas">Aktyvus</mat-slide-toggle>
-    <div> {{vartatnaujinti.statusas}}  </div> 
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Atšaukti</button>

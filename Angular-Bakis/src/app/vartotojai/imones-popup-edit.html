@@ -2,7 +2,8 @@
     <p>Redagavimas</p>
     <mat-form-field>
       <mat-label>Pakeisti įmonės pavadinimą</mat-label>
-      <input matInput [(ngModel)]="imoneredag.imonespavadinimas">
+      <input minlength="2" maxlength="30" matInput [(ngModel)]="imoneredag.imonespavadinimas">
+      <mat-error>Įmonės pavadinimas turi sudaryti nuo 2 iki 30 simbolių</mat-error>
     </mat-form-field>
   </div>
   <div mat-dialog-actions>

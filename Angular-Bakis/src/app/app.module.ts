@@ -36,6 +36,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FileService } from './vartotojai/file.service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { FileService } from './vartotojai/file.service';
     MatSelectModule,
     MatSlideToggleModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
   ],
 
   entryComponents: [

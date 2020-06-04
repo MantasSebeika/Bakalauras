@@ -60,6 +60,7 @@ export class VartotojaiComponent implements OnInit {
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post("http://localhost:8081/imones/update", `{"id":"${atnaujinti.imonesid}", "imonespavadinimas":"${atnaujinti.imonespavadinimas}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
+        alert("Duomenys atnaujinti")
 this.ngOnInit();
       }
       else
@@ -82,6 +83,7 @@ this.ngOnInit();
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post("http://localhost:8081/imones/new", `{"imonespavadinimas":"${naujas.imonespavadinimas}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
+        alert("Įmonė pridėta")
 this.ngOnInit();
       }
       else
@@ -98,6 +100,7 @@ this.ngOnInit();
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post("http://localhost:8081/imones/delete", `{"id":"${id}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
+        alert("Įmonė ištrinta")
 this.ngOnInit();
       }
       else
@@ -119,6 +122,7 @@ this.ngOnInit();
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post("http://localhost:8081/vartotojai/new", `{"imonesid":"${naujas.imonesid}", "pastas":"${naujas.pastas}", "slaptazodis":"${naujas.slaptazodis}", "statusas":"${naujas.statusas}", "vardas":"${naujas.vardas}", "pareigos":"${naujas.pareigos}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
+        alert("Vartotojas sukurtas")
 this.ngOnInit();
       }
       else
@@ -142,6 +146,7 @@ iskvietipopup(vartotojas: AtnaujintiVart){
       const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post("http://localhost:8081/vartotojai/update", `{"id":"${atnaujinti.id}", "pastas":"${atnaujinti.pastas}", "slaptazodis":"${atnaujinti.slaptazodis}", "statusas":"${atnaujinti.statusas}", "vardas":"${atnaujinti.vardas}", "pareigos":"${atnaujinti.pareigos}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
+        alert("Vartotojo duomenys atnaujinti")
 this.ngOnInit();
       }
       else
@@ -159,6 +164,7 @@ this.ngOnInit();
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post("http://localhost:8081/vartotojai/delete", `{"id":"${id}"}`, { headers: headers }).subscribe(resp => {
       if (resp) {
+        alert("Vartotojas ištrintas")
 this.ngOnInit();
       }
       else

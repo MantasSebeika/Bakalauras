@@ -2,23 +2,28 @@
     <p>Pridėti naują Klausimą</p>
     <mat-form-field>
       <mat-label>Kategorija</mat-label>
-      <input matInput [(ngModel)]="klausimasprideti.kategorija">
+      <input minlength="3" maxlength="100" matInput [(ngModel)]="klausimasprideti.kategorija">
+      <mat-error>Kategorija turi sudaryti nuo 3 iki 100 simbolių</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Klausimas</mat-label>
-      <input matInput [(ngModel)]="klausimasprideti.klausimas">
+      <input minlength="5" maxlength="1000" matInput [(ngModel)]="klausimasprideti.klausimas">
+      <mat-error>Kategorija turi sudaryti nuo 5 iki 1000 simbolių</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Rekomendacija neatitinka</mat-label>
-      <input matInput [(ngModel)]="klausimasprideti.rekomendacijane">
+      <input  minlength="5" maxlength="1000" matInput [(ngModel)]="klausimasprideti.rekomendacijane">
+      <mat-error>Kategorija turi sudaryti nuo 5 iki 1000 simbolių</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Rekomendacija atitinka</mat-label>
-      <input matInput [(ngModel)]="klausimasprideti.rekomendacijataip">
+      <input minlength="5" maxlength="1000" matInput [(ngModel)]="klausimasprideti.rekomendacijataip">
+      <mat-error>Kategorija turi sudaryti nuo 5 iki 1000 simbolių</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Identifikuota rizika</mat-label>
-      <input matInput [(ngModel)]="klausimasprideti.identifikuotarizika">
+      <input minlength="5" maxlength="1000" matInput [(ngModel)]="klausimasprideti.identifikuotarizika">
+      <mat-error>Kategorija turi sudaryti nuo 5 iki 1000 simbolių</mat-error>
     </mat-form-field>
   </div>
   <div mat-dialog-actions>

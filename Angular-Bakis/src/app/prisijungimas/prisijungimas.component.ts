@@ -24,14 +24,15 @@ export class PrisijungimasComponent implements OnInit {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
     this.client.post("http://localhost:8081/prisijungti", `{"pastas": "${this.email.email}", "slaptazodis":"${this.slaptazodis.slaptazodis}"}`, { headers: headers }).subscribe(resp => {
     // alert(resp["statusas"]); 
-    if (resp["imonesid"]!="" && resp["statusas"]=="true") {
+    // resp["imonesid"]!="" && 
+    if (resp!=null && resp["statusas"]=="true") {
         this.cookies.delete ("loginasAdmin")
         this.cookies.set("loginas", this.email.email)
         this.cookies.set("imonesid", resp["imonesid"])
         this.route.navigateByUrl("/klausimynas")
       }
       else
-        alert("Neteisingi duomenys")
+        alert("Jūsų paskyra neaktyvi arba tokio vartotojo nėra")
     })
   }
   }
